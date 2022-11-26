@@ -1,4 +1,4 @@
-class CarRequest
+class Car_Request
   attr_accessor :make, :model, :year_from, :year_to, :price_from, :price_to, :sort_option, :sort_direction
 
   def initialize
@@ -19,12 +19,6 @@ class CarRequest
     @sort_option=gets.chomp
     puts "Please choose sort direction(desc|asc):"
     @sort_direction=gets.chomp
-  end
-  def get_Sort_Option
-    return sort_option
-  end
-  def get_Sort_Direction
-    return sort_direction
   end
   def car_eql(var)
     if(@make.empty? || var["make"].casecmp("#{@make}")==0 and @model.empty? || var["model"].casecmp("#{@model}")==0 and @year_from==0 || var["year"]>=@year_from  and @year_to==0 || var["year"]<=@year_to and @price_from==0 || var["price"]>=@price_from  and @price_to==0 || var["price"]<=@price_to)
