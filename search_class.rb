@@ -21,7 +21,7 @@ class Search_Class
       end
     end
   end
-  def print()
+  def print
     puts @result.to_s.gsub(/[\"}\[]/, "").gsub(/[{\]]/, "\n--------------------------------------------\n").gsub(/,/, "\n").gsub(/=>/, ": ")
   end
 end
