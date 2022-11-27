@@ -3,22 +3,18 @@ class CarRequest
 
   def initialize
     puts "Please select search rules"
-    puts "Please choose make:"
-    @make=gets.chomp
-    puts "Please choose model:"
-    @model=gets.chomp
-    puts "Please choose year_from:"
-    @year_from=gets.chomp.to_i
-    puts "Please choose year_to:"
-    @year_to=gets.chomp.to_i
-    puts "Please choose price_from:"
-    @price_from=gets.chomp.to_i
-    puts "Please choose price_to:"
-    @price_to=gets.chomp.to_i
-    puts "Please choose sort option (date_added|price):"
-    @sort_option=gets.chomp
-    puts "Please choose sort direction(desc|asc):"
-    @sort_direction=gets.chomp
+    @make=set_data("Please choose make:")
+    @model=set_data("Please choose model:")
+    @year_from=set_data("Please choose year_from:").to_i
+    @year_to=set_data("Please choose year_to:").to_i
+    @price_from=set_data("Please choose price_from:").to_i
+    @price_to=set_data("Please choose price_to:").to_i
+    @sort_option=set_data("Please choose sort option (date_added|price):")
+    @sort_direction=set_data("Please choose sort direction(desc|asc):")
+  end
+  def set_data(message)
+    puts message
+    gets.chomp
   end
   def car_eql?(var)
     text_check?(var) && num_check?(var)
