@@ -21,25 +21,19 @@ class CarRequest
     @sort_direction=gets.chomp
   end
   def car_eql?(var)
-    if text_eql?(@make, var["make"]) and text_eql?(@model, var["model"]) and num_range?(@year_from, @year_to, var["year"]) and num_range?(@price_from, @price_to, var["price"])
-     true
-    else
-     false
-    end
+    text_check?(var) && num_check?(var)
+  end
+  def text_check?(var)
+    text_eql?(@make, var["make"]) and text_eql?(@model, var["model"])
+  end
+  def num_check?(var)
+    num_range?(@year_from, @year_to, var["year"]) and num_range?(@price_from, @price_to, var["price"])
   end
   def text_eql?(var1, var2)
-    if var1.empty? || var1.casecmp(var2)==0
-      true
-    else
-      false
-    end
+    var1.empty? || var1.casecmp(var2)==0
   end
   def num_range?(min, max, var)
-    if min==0 || var>=min and max==0 || var<=max
-      true
-    else
-      false
-    end
+    min==0 || var>=min and max==0 || var<=max
   end
 end
 
