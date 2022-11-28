@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'search_class'
 require_relative 'car_request'
 search_request = CarRequest.new
