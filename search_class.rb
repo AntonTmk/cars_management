@@ -12,7 +12,7 @@ class SearchClass
     car_array = YAML.safe_load(File.read('cars.yml'))
     @result = car_array.find_all { |n| @request.car_eql?(n) }
     sort_result
-    result_quantity
+    result_quantity if @result.length > 0
   end
 
   def print_result
@@ -50,9 +50,9 @@ class SearchClass
   end
 
   def edit_history(searches)
-    if !searches.find { |v| v == @request.car_hash(v[:requests_quantity], v[:total_quantity]) }.nil?
+    if !searches.find { |v| v.to_s.casecmp(@request.car_hash(v[:requests_quantity], v[:total_quantity]).to_s) }.nil?
       (0..searches.length - 1).each do |v|
-        next unless searches[v] == @request.car_hash(searches[v][:requests_quantity], searches[v][:total_quantity])
+       next unless searches[v].to_s.casecmp(@request.car_hash(searches[v][:requests_quantity], searches[v][:total_quantity]).to_s).zero?
 
         searches[v][:requests_quantity] += 1
         searches[v][:total_quantity] = @request.total_quantity
