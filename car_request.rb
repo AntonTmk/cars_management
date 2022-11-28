@@ -2,7 +2,8 @@
 
 # class for creating a search query
 class CarRequest
-  attr_accessor :make, :model, :year_from, :year_to, :price_from, :price_to, :sort_option, :sort_direction
+  attr_accessor :make, :model, :year_from, :year_to, :price_from, :price_to, :sort_option, :sort_direction,
+                :requests_quantity, :total_quantity
 
   def initialize
     puts 'Please select search rules'
@@ -39,5 +40,12 @@ class CarRequest
 
   def num_range?(min, max, var)
     min.zero? || var >= min and max.zero? || var <= max
+  end
+
+  def car_hash(val1, val2)
+    { make: @make, model: @model,
+      year_from: @year_from, year_to: @year_to,
+      price_from: @price_from, price_to: @price_to,
+      requests_quantity: val1, total_quantity: val2 }
   end
 end
