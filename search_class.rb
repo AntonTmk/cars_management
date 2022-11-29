@@ -109,6 +109,7 @@ class SearchClass
     require 'yaml'
     searches = YAML.load(File.read('searches.yml'))
     if searches == false
+      @request.requests_quantity=1
       searches = [@request.car_hash(1, @result.length)]
     else
       edit_history(searches)
