@@ -38,6 +38,7 @@ class SearchClass
   end
 
   def result_quantity
+    file_exist('searches.yml')
     @request.total_quantity = @result.length
     require 'yaml'
     searches = YAML.load(File.read('searches.yml'))
@@ -62,5 +63,9 @@ class SearchClass
       @request.requests_quantity = 1
       searches << @request.car_hash(1, @result.length)
     end
+  end
+
+  def file_exist(var)
+    File.new(var, 'w') unless File.exists?(var)
   end
 end
