@@ -79,6 +79,6 @@ class SearchClass
   end
 
   def compare_req?(req1, req2)
-    req1.to_s.casecmp(req2.car_hash(req1[:requests_quantity], req1[:total_quantity]).to_s).zero?
+    !req1.to_s.casecmp(req2.car_hash(req1[:requests_quantity], req1[:total_quantity]).to_s).zero?
   end
 end
