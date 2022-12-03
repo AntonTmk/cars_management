@@ -1,24 +1,37 @@
 # frozen_string_literal: true
 
+require_relative 'translate_text'
+
 # class for creating a search query
 class CarRequest
   attr_accessor :make, :model, :year_from, :year_to, :price_from, :price_to, :sort_option, :sort_direction,
-                :requests_quantity, :total_quantity
+                :requests_quantity, :total_quantity, :translator
 
   def initialize
-    puts 'Please select search rules'
-    @make = write_data('Please choose make:')
-    @model = write_data('Please choose model:')
-    @year_from = write_data('Please choose year_from:').to_i
-    @year_to = write_data('Please choose year_to:').to_i
-    @price_from = write_data('Please choose price_from:').to_i
-    @price_to = write_data('Please choose price_to:').to_i
-    @sort_option = write_data('Please choose sort option (date_added|price):')
-    @sort_direction = write_data('Please choose sort direction(desc|asc):')
+    choose_language
+    puts @translator.translate_content('Please select search rules')
+    @make = write_data('Please choose make')
+    @model = write_data('Please choose model')
+    @year_from = write_data('Please choose year_from').to_i
+    @year_to = write_data('Please choose year_to').to_i
+    @price_from = write_data('Please choose price_from').to_i
+    @price_to = write_data('Please choose price_to').to_i
+    choose_sort
+  end
+
+  def choose_language
+    @translator = TranslateText.new
+    puts "Choose language #{@translator.available_languages}"
+    @translator.change_language(gets.chomp)
+  end
+
+  def choose_sort
+    @sort_option = write_data('Please choose sort option')
+    @sort_direction = write_data('Please choose sort direction')
   end
 
   def write_data(message)
-    puts message
+    puts @translator.translate_content(message)
     gets.chomp
   end
 

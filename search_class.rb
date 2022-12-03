@@ -2,6 +2,8 @@
 
 require_relative 'car_request'
 require_relative 'file_process'
+require_relative 'create_table'
+require_relative 'translate_text'
 
 # class to get the result of a search request
 class SearchClass
@@ -17,14 +19,29 @@ class SearchClass
   end
 
   def print_result
-    puts "-------------------------------------------- \n Statistic: \n \n"
-    puts "Total Quanity: #{@request.total_quantity} \n \nRequests quantity:  #{@request.requests_quantity} "
-    print = @result.to_s.gsub(/["}\[]/, '').gsub(/[{\]]/, "\n--------------------------------------------\n")
-    print = print.gsub(/,/, "\n").gsub(/=>/, ': ')
-    puts print
+    table = CreateTable.new(table_title)
+    table.add_headings(table_heading)
+    @result.each { |vechicle| vechicle['description'] = translate_text("description_#{vechicle['id']}") }
+    table.add_content(@result)
+    table.table_print
   end
 
   private
+
+  def table_title
+    "#{translate_text('task_title')} \n
+    #{translate_text(:total_quantity)}: #{@request.total_quantity}
+    #{translate_text(:requests_quantity)}:  #{@request.requests_quantity}"
+  end
+
+  def table_heading
+    [translate_text('id'), translate_text('make'), translate_text('model'), translate_text('year'),
+     translate_text('odometer'), translate_text('price'), translate_text('description'), translate_text('date_added')]
+  end
+
+  def translate_text(text)
+    @request.translator.translate_content(text).to_s
+  end
 
   def sort_result
     @result = if @request.sort_option.casecmp('price') != 0

@@ -1,10 +1,14 @@
 ### Task link
-* https://learn.epam.com/static/files/82544e0f-f8a9-44e8-b8d8-2e3907818616
+* https://learn.epam.com/static/files/7d8e5b7b-95c0-4842-b2c1-f16e9757813e
 ### What has been changed?
-- [ ] added total requests logic
+- [ ] added prettify output to console
 #### Added files:
-+ searches.yml
-    * file contains search history
++ Gemfile
+    * file contains gems
++ create_table.rb
+    * class for creating tables
++ translate_text
+  * class for translating app content
 #### Changed files:
 - [ ] searches_class.rb
      * new method
