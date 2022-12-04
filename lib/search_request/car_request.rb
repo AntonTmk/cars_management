@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../config/requirements'
+require_relative '../../config/requirements'
 
 # class for creating a search query
 class CarRequest

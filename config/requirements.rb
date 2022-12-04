@@ -5,20 +5,20 @@ require 'colorize'
 require 'yaml'
 
 # Classes
-require_relative '../lib/car_request'
+require_relative '../lib/search_request/car_request'
 require_relative '../lib/file_process'
 require_relative '../lib/create_table'
-require_relative '../lib/search_class'
+require_relative '../lib/search_operations/search_class'
 
 
 #modules
 require_relative '../lib/translate_text'
 include TranslateText
-require_relative '../lib/search_history'
+require_relative '../lib/search_operations/search_history'
 include SearchHistory
-require_relative '../lib/result_table'
+require_relative '../lib/search_operations/result_table'
 include ResultTable
-require_relative '../lib/compare_requests'
+require_relative '../lib/search_request/compare_requests'
 include CompareRequests
 
 #config

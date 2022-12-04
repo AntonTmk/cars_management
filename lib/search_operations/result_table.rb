@@ -1,6 +1,6 @@
 
 
-require_relative '../lib/search_history'
+require_relative '../../config/requirements'
 
 module ResultTable
 

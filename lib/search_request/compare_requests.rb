@@ -1,5 +1,5 @@
 
-require_relative '../config/requirements'
+require_relative '../../config/requirements'
 
 module CompareRequests
 

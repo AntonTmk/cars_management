@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../config/requirements'
+require_relative '../../config/requirements'
 
 # class to get the result of a search request
 class SearchClass
