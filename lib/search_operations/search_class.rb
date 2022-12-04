@@ -8,12 +8,16 @@ class SearchClass
 
   def initialize(req)
     @request = req
-    car_list = FileProcess.new
-    car_list.select_file('cars.yml')
-    @result = car_list.file_content.find_all { |n| @request.car_eql_nil?(n) }
+    @result = read_content('cars.yml')
     sort_result
     @request.total_quantity = @result.length
     SearchHistory.result_quantity(@request) if @result.length.positive?
+  end
+
+  def read_content(filename)
+    car_list = FileProcess.new
+    car_list.select_file(filename)
+    car_list.file_content.find_all { |n| @request.car_eql_nil?(n) }
   end
 
   def print_result

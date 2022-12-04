@@ -35,11 +35,23 @@ class CarRequest
       requests_quantity: val1, total_quantity: val2 }
   end
 
-  def car_eql?(var)
-    text_check?(self, var) and num_check?(self, var)
-  end
-
   def car_eql_nil?(var)
     text_check_nil?(self, var) && num_check_nil?(self, var)
+  end
+
+  def car_eql?(var)
+    (downcase_array(compare_hash) - downcase_array(var)).empty?
+  end
+
+  private
+
+  def compare_hash
+    { make: @make, model: @model,
+      year_from: @year_from, year_to: @year_to,
+      price_from: @price_from, price_to: @price_to}
+  end
+
+  def downcase_array(hash)
+    hash.values.map(&:to_s).map(&:downcase)
   end
 end
