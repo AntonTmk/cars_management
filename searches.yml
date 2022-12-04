@@ -5,7 +5,7 @@
   :year_to: 0
   :price_from: 0
   :price_to: 0
-  :requests_quantity: 45
+  :requests_quantity: 51
   :total_quantity: 14
 - :make: bmw
   :model: ''
@@ -13,7 +13,7 @@
   :year_to: 0
   :price_from: 0
   :price_to: 0
-  :requests_quantity: 19
+  :requests_quantity: 20
   :total_quantity: 2
 - :make: infiniti
   :model: ''
@@ -21,7 +21,7 @@
   :year_to: 0
   :price_from: 0
   :price_to: 0
-  :requests_quantity: 19
+  :requests_quantity: 20
   :total_quantity: 1
 - :make: peugeot
   :model: ''
@@ -29,5 +29,5 @@
   :year_to: 0
   :price_from: 0
   :price_to: 0
-  :requests_quantity: 1
+  :requests_quantity: 2
   :total_quantity: 1

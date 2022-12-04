@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative '../config/requirements'
+
 # class for working with files
 class FileProcess
   attr_accessor :file_name, :file_content
@@ -10,7 +12,6 @@ class FileProcess
   end
 
   def update_content
-    require 'yaml'
     File.write(@file_name, @file_content.to_yaml)
   end
 
@@ -21,7 +22,6 @@ class FileProcess
   end
 
   def read_content
-    require 'yaml'
     file_exist
     YAML.load(File.read(@file_name))
   end
