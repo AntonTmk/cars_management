@@ -8,8 +8,8 @@ class SearchClass
 
   def initialize(req)
     @request = req
-    require 'yaml'
-    car_list = FileProcess.new('cars.yml')
+    car_list = FileProcess.new
+    car_list.select_file('cars.yml')
     @result = car_list.file_content.find_all { |n| @request.car_eql_nil?(n) }
     sort_result
     @request.total_quantity = @result.length

@@ -7,7 +7,8 @@ module SearchHistory
 
   def result_quantity(request)
     @request = request
-    @history = FileProcess.new('searches.yml')
+    @history = FileProcess.new
+    @history.select_file('searches.yml')
     unless @history.file_content
       @request.requests_quantity = DEFAULT_REQUESTS_QUANTITY
       @history.file_content = [@request.car_hash(DEFAULT_REQUESTS_QUANTITY, @result.length)]

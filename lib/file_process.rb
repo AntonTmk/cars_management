@@ -6,7 +6,7 @@ require_relative '../config/requirements'
 class FileProcess
   attr_accessor :file_name, :file_content
 
-  def initialize(name)
+  def select_file(name)
     @file_name = name
     @file_content = read_content
   end

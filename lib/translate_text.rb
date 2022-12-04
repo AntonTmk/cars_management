@@ -14,6 +14,6 @@ module TranslateText
 
   def change_language
     language = gets.chomp
-    I18n.locale = :uk if language.include? 'uk'
+    I18n.locale = I18n.available_locales.to_s.include?(language) ? language.to_sym : I18n.default_locale
   end
 end
