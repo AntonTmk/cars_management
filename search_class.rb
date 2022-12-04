@@ -66,11 +66,11 @@ class SearchClass
 
   def update_request(list, req)
     (0..list.length - 1).each do |v|
-      next if compare_req?(list[v], req)
-
-      list[v][:requests_quantity] += 1
-      list[v][:total_quantity] = req.total_quantity
-      req.requests_quantity = list[v][:requests_quantity]
+      if compare_req?(list[v], req)
+        list[v][:requests_quantity] += 1
+        list[v][:total_quantity] = req.total_quantity
+        req.requests_quantity = list[v][:requests_quantity]
+      end
     end
   end
 
@@ -79,6 +79,6 @@ class SearchClass
   end
 
   def compare_req?(req1, req2)
-    !req1.to_s.casecmp(req2.car_hash(req1[:requests_quantity], req1[:total_quantity]).to_s).zero?
+    req1.to_s.casecmp(req2.car_hash(req1[:requests_quantity], req1[:total_quantity]).to_s).zero?
   end
 end
