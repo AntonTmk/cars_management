@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'terminal-table'
+require 'colorize'
 
 # class to create table
 class CreateTable
@@ -21,9 +22,9 @@ class CreateTable
 
   def table_print
     table = Terminal::Table.new
-    table.title = @table_title
-    table.headings = @table_headings
-    table.rows = @table_content
+    table.title = @table_title.colorize(:light_cyan)
+    table.headings = @table_headings.map { |v| v.colorize(:blue) }
+    table.rows = @table_content.map { |v| v.map{ |val| val.to_s.colorize(:magenta) } }
     puts table
   end
 end

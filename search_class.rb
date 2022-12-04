@@ -13,7 +13,7 @@ class SearchClass
     @request = req
     require 'yaml'
     car_list = FileProcess.new('cars.yml')
-    @result = car_list.file_content.find_all { |n| @request.car_eql?(n) }
+    @result = car_list.file_content.find_all { |n| @request.car_eql_nil?(n) }
     sort_result
     result_quantity if @result.length.positive?
   end
@@ -21,7 +21,6 @@ class SearchClass
   def print_result
     table = CreateTable.new(table_title)
     table.add_headings(table_heading)
-    @result.each { |vechicle| vechicle['description'] = translate_text("description_#{vechicle['id']}") }
     table.add_content(@result)
     table.table_print
   end
@@ -35,8 +34,7 @@ class SearchClass
   end
 
   def table_heading
-    [translate_text('id'), translate_text('make'), translate_text('model'), translate_text('year'),
-     translate_text('odometer'), translate_text('price'), translate_text('description'), translate_text('date_added')]
+    %w[id make model year odometer price description date_added].map { |value| translate_text(value) }
   end
 
   def translate_text(text)
@@ -83,19 +81,19 @@ class SearchClass
 
   def update_request(list, req)
     (0..list.length - 1).each do |v|
-      next if compare_req?(list[v], req)
-
-      list[v][:requests_quantity] += 1
-      list[v][:total_quantity] = req.total_quantity
-      req.requests_quantity = list[v][:requests_quantity]
+      if compare_req?(list[v], req)
+        list[v][:requests_quantity] = list[v][:requests_quantity].to_i + 1
+        list[v][:total_quantity] = @request.total_quantity.to_i
+        @request.requests_quantity = list[v][:requests_quantity].to_i
+      end
     end
   end
 
   def include_req?(searches, request)
-    searches.select { |req| compare_req?(req, request) }.length.positive?
+    searches.select { |req| compare_req?(req, request) }.length > 0
   end
 
-  def compare_req?(req1, req2)
-    !req1.to_s.casecmp(req2.car_hash(req1[:requests_quantity], req1[:total_quantity]).to_s).zero?
+  def compare_req?(car, req)
+    req.car_eql?(car)
   end
 end
