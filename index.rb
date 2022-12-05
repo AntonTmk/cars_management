@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative 'search_class'
-require_relative 'car_request'
+require_relative 'config/requirements'
+
 search_request = CarRequest.new
-search_result = SearchClass.new(search_request)
+search_result = SearchResult.new(search_request)
 search_result.print_result

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative '../../config/requirements'
+
 # class for creating a search query
 class CarRequest
   attr_accessor :make, :model, :year_from, :year_to, :price_from, :price_to, :sort_option, :sort_direction,
