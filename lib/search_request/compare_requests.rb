@@ -1,8 +1,9 @@
+# frozen_string_literal: true
 
 require_relative '../../config/requirements'
 
+# module for comparing search requests
 module CompareRequests
-
   def text_check_nil?(var1, var2)
     text_include?(var1.make, var2['make']) and
       text_include?(var1.model, var2['model'])

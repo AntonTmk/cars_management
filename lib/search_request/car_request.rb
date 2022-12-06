@@ -48,7 +48,7 @@ class CarRequest
   def compare_hash
     { make: @make, model: @model,
       year_from: @year_from, year_to: @year_to,
-      price_from: @price_from, price_to: @price_to}
+      price_from: @price_from, price_to: @price_to }
   end
 
   def downcase_array(hash)

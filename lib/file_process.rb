@@ -2,27 +2,21 @@
 
 require_relative '../config/requirements'
 
-# class for working with files
-class FileProcess
-  attr_accessor :file_name, :file_content
-
-  def select_file(name)
-    @file_name = name
-    @file_content = read_content
+# module for working with files
+module FileProcess
+  def update_content(file_name, content)
+    file_exist(file_name)
+    File.write(file_name, content.to_yaml)
   end
 
-  def update_content
-    File.write(@file_name, @file_content.to_yaml)
+  def read_content(file_name)
+    file_exist(file_name)
+    YAML.load(File.read(file_name))
   end
 
   private
 
-  def file_exist
-    File.new(@file_name, 'w') unless File.exist?(@file_name)
-  end
-
-  def read_content
-    file_exist
-    YAML.load(File.read(@file_name))
+  def file_exist(file_name)
+    File.new(file_name, 'w') unless File.exist?(file_name)
   end
 end

@@ -4,7 +4,6 @@ require_relative '../config/requirements'
 
 # class for translating program content
 module TranslateText
-
   def available_languages
     puts "Please choose locale  #{I18n.available_locales}".colorize(:light_blue)
     change_language
