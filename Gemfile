@@ -2,16 +2,16 @@
 
 source 'https://rubygems.org'
 
-gem 'i18n'
+gem 'i18n', '~> 1.12'
 
-gem 'terminal-table'
+gem 'terminal-table', '~> 3.0', '>= 3.0.2'
 
-gem 'colorize'
+gem 'colorize', '~> 0.8.1'
 
-gem 'rubocop'
+gem 'rubocop', '~> 1.40'
 
-gem 'bundler-audit'
+gem 'bundler-audit', '~> 0.9.1'
 
-gem 'bundler-leak'
+gem 'bundler-leak', '~> 0.3.0'
 
-gem 'lefthook'
+gem 'lefthook', '~> 1.2', '>= 1.2.4'

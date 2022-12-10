@@ -2,6 +2,7 @@ uk:
   task_title: "Автомобільний менеджмент"
   requests_quantity: "Кількість запитів"
   total_quantity: "Загальна кількість"
+
   id: "id"
   make: "Виробник"
   model: "Модель"
@@ -10,7 +11,9 @@ uk:
   price: "Ціна"
   description: "Опис"
   date_added: "Дата додавання"
+
   Please select search rules: "Виберіть правила пошуку"
+
   Please choose make: "Оберіть виробника: "
   Please choose model: "Виберіть модель:"
   Please choose year_from: "Виберіть рік із:"
