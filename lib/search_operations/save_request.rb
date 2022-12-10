@@ -10,7 +10,7 @@ module SaveRequest
   def request_save(request)
     @request = request
     searches = FileProcess.read_content(HISTORY_FILE)
-    if !searches
+    unless searches
       @request.requests_quantity = DEFAULT_REQUESTS_QUANTITY
       searches = [@request.car_hash(DEFAULT_REQUESTS_QUANTITY, @request.total_quantity)]
     else
@@ -34,11 +34,11 @@ module SaveRequest
 
   def update_request(list, req)
     (0..list.length - 1).each do |v|
-      if compare_req?(list[v], req)
-        list[v][:requests_quantity] += 1
-        list[v][:total_quantity] = req.total_quantity
-        req.requests_quantity = list[v][:requests_quantity]
-      end
+      next unless compare_req?(list[v], req)
+
+      list[v][:requests_quantity] += 1
+      list[v][:total_quantity] = req.total_quantity
+      req.requests_quantity = list[v][:requests_quantity]
     end
   end
 
