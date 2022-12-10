@@ -12,8 +12,8 @@ module SearchHistory
   def record_request(request)
     @request = request
     @history = FileProcess.read_content(HISTORY_FILE_NAME)
-    !@history ? initialize_file : edit_history
-    FileProcess.update_content(HISTORY_FILE_NAME, @history)
+    @history ? edit_history : initialize_file
+      FileProcess.update_content(HISTORY_FILE_NAME, @history)
   end
 
   private
