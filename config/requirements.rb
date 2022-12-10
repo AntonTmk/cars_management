@@ -15,6 +15,8 @@ require_relative '../lib/search_operations/search_class'
 
 # modules
 
+require_relative '../lib/navigation/start_menu'
+include StartMenu
 require_relative '../lib/translate_text'
 include TranslateText
 require_relative '../lib/search_operations/search_history'

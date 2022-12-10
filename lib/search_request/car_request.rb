@@ -8,6 +8,17 @@ class CarRequest
                 :requests_quantity, :total_quantity
 
   def initialize
+    @make = ''
+    @model = ''
+    @year_from = 0
+    @year_to = 0
+    @price_from = 0
+    @price_to = 0
+    @sort_option = ''
+    @sort_direction = ''
+  end
+
+  def print_menu
     puts I18n.t('Please select search rules').colorize(:blue)
     @make = write_data('Please choose make')
     @model = write_data('Please choose model')

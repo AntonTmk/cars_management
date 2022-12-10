@@ -22,3 +22,25 @@ en:
   Please choose price_to: "Please choose price_to:"
   Please choose sort option: "Please choose sort option (date_added|price):"
   Please choose sort direction: "Please choose sort direction(desc|asc):"
+
+  Welcome: "Welcome to Car Management"
+  help message: "You can use this program to search for cars from the cars.yml file with the parameters you want \n
+  Available filters: \n
+  * make \n
+  * model \n
+  * year_from \n
+  * year_to \n
+  * price_from \n 
+  * price_to \n
+  Also you can choose sort option \n"
+
+  invalid request: "invalid request \n Type only: 1, 2, 3 or 4 \n Try again"
+
+  press ENTER button to return menu: "press ENTER button to return menu"
+  Search a car: "Search a car"
+  Show all cars: "Show all cars"
+  Help: "Help"
+  Exit: "Exit"
+  Enter the menu item number: "Enter the menu item number"
+
+  goodbye: "Goodbye!"

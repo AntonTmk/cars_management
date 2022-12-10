@@ -7,7 +7,7 @@ module SearchHistory
   attr_accessor :request, :history
 
   DEFAULT_REQUESTS_QUANTITY = 1
-  HISTORY_FILE_NAME = 'searches.yml'.freeze
+  HISTORY_FILE_NAME = 'searches.yml'
 
   def record_request(request)
     @request = request
