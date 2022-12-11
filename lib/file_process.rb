@@ -4,7 +4,6 @@ require_relative '../config/requirements'
 
 # module for working with files
 module FileProcess
-
   def read_content(filename)
     file_exist(filename)
     YAML.load(File.read(filename))
