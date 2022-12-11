@@ -20,7 +20,7 @@ module SearchHistory
 
   def initialize_file
     @request.requests_quantity = DEFAULT_REQUESTS_QUANTITY
-    @history = [@request.car_hash(DEFAULT_REQUESTS_QUANTITY, @result.length)]
+    @history = [@request.car_hash(DEFAULT_REQUESTS_QUANTITY, @request.total_quantity)]
   end
 
   def edit_history
