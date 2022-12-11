@@ -6,18 +6,19 @@ require_relative '../../config/requirements'
 class SearchClass
   attr_accessor :request, :result
 
+  CAR_DB = 'cars.yml'
+
   def initialize(req)
     @request = req
-    @result = read_content('cars.yml')
+    @result = read_content(CAR_DB)
     sort_result
     @request.total_quantity = @result.length
-    SearchHistory.result_quantity(@request) if @result.length.positive?
+    SearchHistory.record_request(@request) if @result.length.positive?
   end
 
   def read_content(filename)
-    car_list = FileProcess.new
-    car_list.select_file(filename)
-    car_list.file_content.find_all { |n| @request.car_eql_nil?(n) }
+    car_list = FileProcess.read_content(filename)
+    car_list.find_all { |n| @request.car_eql_nil?(n) }
   end
 
   def print_result
