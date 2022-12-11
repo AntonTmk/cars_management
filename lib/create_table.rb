@@ -14,8 +14,6 @@ class CreateTable
     puts table
   end
 
-  private
-
 
   def initialize(titles)
     @table_title = titles

@@ -40,7 +40,7 @@ class CarRequest
   end
 
   def car_eql?(var)
-    (downcase_array(compare_hash) - downcase_array(var)).empty?
+    downcase_array(var) == downcase_array(car_hash(var[:requests_quantity], var[:total_quantity]))
   end
 
   private

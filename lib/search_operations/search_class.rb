@@ -28,14 +28,25 @@ class SearchClass
   private
 
   def sort_result
-    @result = if @request.sort_option.casecmp('price') != 0
-                @result.sort_by do |v|
-                  d, m, y = v['date_added'].split('/')
-                  [y.to_i, m.to_i, d.to_i]
-                end
-              else
-                @result.sort_by { |v| v['price'] }
-              end
+    @result = sort_type?('price') ? sort_by_price : sort_by_date
     @result = @result.reverse if @request.sort_direction.casecmp('asc') != 0
   end
+
+  def sort_type?(type)
+    @request.sort_option.casecmp(type).zero?
+  end
+
+  def sort_by_price
+    @result.sort_by { |v| v['price'] }
+  end
+
+  def sort_by_date
+    @result.sort_by do |v|
+      d, m, y = v['date_added'].split('/')
+      [y.to_i, m.to_i, d.to_i]
+    end
+  end
+
+
+
 end
