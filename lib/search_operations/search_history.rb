@@ -13,7 +13,7 @@ module SearchHistory
     @request = request
     @history = FileProcess.read_content(HISTORY_FILE_NAME)
     @history ? edit_history : initialize_file
-      FileProcess.update_content(HISTORY_FILE_NAME, @history)
+    FileProcess.update_content(HISTORY_FILE_NAME, @history)
   end
 
   private
@@ -24,11 +24,7 @@ module SearchHistory
   end
 
   def edit_history
-    if history_include_req?(@history)
-      update_request(@history)
-    else
-      add_request(@history)
-    end
+    history_include_req?(@history) ? update_request(@history) : add_request(@history)
   end
 
   def add_request(list)
