@@ -4,11 +4,14 @@ require_relative '../../config/requirements'
 
 # module for navigating the application
 module StartMenu
+  attr_accessor :user
+
   def call
     print_item(1, 'Search a car')
     print_item(2, 'Show all cars')
     print_item(3, 'Help')
     print_item(4, 'Exit')
+    account_menu
     choose_menu
   end
 
@@ -35,7 +38,13 @@ module StartMenu
     when '4'
       puts I18n.t('goodbye').colorize(:black).on_blue
       exit
-    else puts I18n.t('invalid request').colorize(:black).on_red
+    when '5' then @user.status ? @user.log_out : @user.log_in
+    else
+      if event == "6" && !@user.status
+        @user.sing_up
+      else
+        puts I18n.t('invalid request').colorize(:black).on_red
+      end
     end
   end
 
@@ -51,5 +60,16 @@ module StartMenu
     search_request.choose_sort
     search_result = SearchClass.new(search_request)
     search_result.print_result
+  end
+
+  def account_menu
+    #puts @user.status
+    if @user.nil? || !@user.status
+      @user = User.new
+      print_item(5, 'Log In')
+      print_item(6, 'Sing Up')
+    else
+      print_item(5, 'Log Out')
+    end
   end
 end

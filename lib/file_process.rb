@@ -9,6 +9,15 @@ module FileProcess
     File.write(file_name, content.to_yaml)
   end
 
+  def add_content(file_name, new_content)
+    content = if read_content(file_name)
+      read_content(file_name)<<new_content
+    else
+      [new_content]
+    end
+    File.write(file_name, content.to_yaml)
+  end
+
   def read_content(file_name)
     file_exist(file_name)
     YAML.load(File.read(file_name))

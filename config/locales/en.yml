@@ -34,13 +34,19 @@ en:
   * price_to \n
   Also you can choose sort option \n"
 
-  invalid request: "invalid request \n Type only: 1, 2, 3 or 4 \n Try again"
+  invalid request: "invalid request \n Try again"
 
   press ENTER button to return menu: "press ENTER button to return menu"
   Search a car: "Search a car"
   Show all cars: "Show all cars"
+  Log In: "Log In"
+  Sing Up: "Sing Up"
+  Log Out: "Log Out"
   Help: "Help"
   Exit: "Exit"
   Enter the menu item number: "Enter the menu item number"
 
   goodbye: "Goodbye!"
+
+  email: "input email please:"
+  password: "input password please:"
