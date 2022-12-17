@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require_relative '../table/ble'
+require_relative '../table/base_table'
 
 # module for creating tables from SearchResult
-module ResultTable
+module CarsTable
   def print_table(content, request)
-    table = CreateTable.new(table_title(request))
+    table = BaseTable.new(table_title(request))
     table.add_headings(table_heading)
     table.add_content(content)
     table.table_print

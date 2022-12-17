@@ -3,7 +3,7 @@
 require 'terminal-table'
 
 # class to create table
-class CreateTable
+class BaseTable
   attr_accessor :table_title, :table_headings, :table_content
 
   def initialize(titles)

@@ -3,7 +3,7 @@
 # require_relative '../../config/requirements'
 
 # module for comparing search requests
-module CompareRequests
+module ComparisonRequests
   def text_eql_or_nil?(request_hash, hash)
     text_include?(request_hash.make, hash['make']) and
       text_include?(request_hash.model, hash['model'])

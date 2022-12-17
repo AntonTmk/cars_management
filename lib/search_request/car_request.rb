@@ -2,11 +2,11 @@
 
 require 'i18n'
 require 'colorize'
-require_relative 'compare_requests'
+require_relative 'comparison_requests'
 
 # class for creating a search query
 class CarRequest
-  include CompareRequests
+  include ComparisonRequests
   attr_accessor :make, :model, :year_from, :year_to, :price_from, :price_to, :sort_option, :sort_direction,
                 :requests_quantity, :total_quantity
 
