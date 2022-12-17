@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'date'
 require_relative '../search_request/car_request'
 require_relative 'search_history'
 require_relative '../table/cars_table'
@@ -43,13 +44,10 @@ class SearchClass
   end
 
   def sort_by_price
-    @result.sort_by { |v| v['price'] }
+    @result.sort_by { |car| car['price'] }
   end
 
   def sort_by_date
-    @result.sort_by do |v|
-      d, m, y = v['date_added'].split('/')
-      [y.to_i, m.to_i, d.to_i]
-    end
+    @result.sort_by { |car| Date.strptime(car['date_added'], '%d/%m/%y') }
   end
 end
