@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../config/requirements'
+# require_relative '../../config/requirements'
 
 # module for comparing search requests
 module CompareRequests

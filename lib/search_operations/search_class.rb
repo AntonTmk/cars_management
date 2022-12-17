@@ -1,28 +1,34 @@
 # frozen_string_literal: true
 
-require_relative '../../config/requirements'
+require_relative '../search_request/car_request'
+require_relative 'search_history'
+require_relative '../navigation/t_table'
+require_relative '../file_process'
 
 # class to get the result of a search request
 class SearchClass
+  include ResultTable
+  include SearchHistory
+  include FileProcess
   attr_accessor :request, :result
 
   CAR_DB = 'cars.yml'
 
   def initialize(req)
     @request = req
-    @result = read_content(CAR_DB)
+    @result = read_filtered_content(CAR_DB)
     sort_result
     @request.total_quantity = @result.length
-    SearchHistory.record_request(@request) if @result.length.positive?
+    record_request(@request) if @result.length.positive?
   end
 
-  def read_content(filename)
-    car_list = FileProcess.read_content(filename)
+  def read_filtered_content(filename)
+    car_list = read_content(filename)
     car_list.find_all { |n| @request.include?(n) }
   end
 
   def print_result
-    ResultTable.print_table(@result, @request)
+    print_table(@result, @request)
   end
 
   private

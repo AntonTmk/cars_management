@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../config/requirements'
+require 'yaml'
 
 # module for working with files
 module FileProcess

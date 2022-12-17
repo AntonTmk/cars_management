@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-require_relative '../config/requirements'
+require 'i18n'
+require 'colorize'
 
 # class for translating program content
 module TranslateText

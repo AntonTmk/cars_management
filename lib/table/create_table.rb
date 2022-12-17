@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../config/requirements'
+require 'terminal-table'
 
 # class to create table
 class CreateTable

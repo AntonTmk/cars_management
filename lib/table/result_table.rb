@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../config/requirements'
+require_relative '../table/ble'
 
 # module for creating tables from SearchResult
 module ResultTable

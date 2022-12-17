@@ -1,9 +1,13 @@
 # frozen_string_literal: true
 
-require_relative '../../config/requirements'
+require_relative '../search_request/car_request'
+require_relative '../search_operations/search_class'
+require 'i18n'
+require 'colorize'
 
 # module for navigating the application
 module StartMenu
+
   def call
     print_item(1, 'Search_a_car')
     print_item(2, 'Show_all_cars')
