@@ -6,18 +6,8 @@ module AccountLogin
   include BCrypt
   attr_accessor :user
 
-  def login_menu
+  def login_data_valid?(email, password)
     @user = User.new
-    puts "Login to account"
-    puts "input email please:"
-    email = gets.chomp
-    puts "input password please:"
-    password = gets.chomp
-    login(email, password)
-    {status: @user.status, email: @user.email, password: password}
-  end
-
-  def login(email, password)
     find_by_email(email)
     @user.status = if !@user.password_hash.nil? && @user.password_hash.is_password?(password)
                      puts "Hello, #{email}!".colorize(:green)
@@ -26,7 +16,10 @@ module AccountLogin
                      puts "Log In fail".colorize(:red)
                      false
                    end
+    @user.status
   end
+
+  private
 
   DB_USERS = 'users.yml'
 

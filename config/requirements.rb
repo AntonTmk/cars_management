@@ -14,16 +14,12 @@ require_relative '../lib/search_request/car_request'
 require_relative '../lib/create_table'
 require_relative '../lib/search_operations/search_class'
 require_relative '../lib/user/user'
-require_relative '../lib/user/create_account'
-require_relative '../lib/user/account_login'
-
-# modules
-include AccountLogin
-include CreateAccount
+# require_relative '../lib/user/create_account'
+# require_relative '../lib/user/account_login'
 
 
 require_relative '../lib/navigation/start_menu'
-include StartMenu
+#include StartMenu
 require_relative '../lib/translate_text'
 include TranslateText
 require_relative '../lib/search_operations/search_history'

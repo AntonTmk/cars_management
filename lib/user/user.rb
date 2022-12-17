@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 require_relative '../../config/requirements'
+require_relative 'account_login'
+require_relative 'create_account'
 
 # class for user
 class User
-  # users.password_hash in the database is a :string
   include BCrypt
-
+  include CreateAccount
+  include AccountLogin
   attr_accessor :email, :password_hash, :status
 
   DB_USERS = 'users.yml'
@@ -27,8 +29,8 @@ class User
     FileProcess.add_content(DB_USERS, { email: @email, password: @password_hash.to_s })
   end
 
-  def log_in
-    hash_init(login_menu)
+  def log_in(email, password)
+    add_data(email, password) if AccountLogin.login_data_valid?(email, password)
   end
 
   def log_out
@@ -37,13 +39,16 @@ class User
     @status = false
   end
 
-  def sing_up
-    hash_init(sing_up_menu)
+  def sing_up(email, password)
+    if registration_attempt?(email, password)
+      add_data(email, password)
+      save!
+    end
   end
-
-  def hash_init(user)
-    @email = user[:email]
-    @password_hash = user[:password]
-    @status = user[:status]
+  
+  def add_data(email, password)
+    @status = true
+    @email = email
+    @password_hash = Password.create(password)
   end
 end

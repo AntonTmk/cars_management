@@ -4,4 +4,5 @@ require_relative 'config/requirements'
 
 TranslateText.available_languages
 puts I18n.t('Welcome').colorize(:black).on_blue
-StartMenu.call
+menu = StartMenu.new
+menu.call

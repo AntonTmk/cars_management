@@ -1,23 +1,34 @@
 
-require_relative '../../config/requirements'
+# require_relative '../../config/requirements'
 
-
+# register
 module CreateAccount
-  def sing_up_menu
-    puts "input email please:"
-    email = gets.chomp
-    puts "input password please:"
-    password = gets.chomp
-    create(email, password)
+  EMAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+
+  def registration_attempt?(email, password)
+    if email_validator?(email) && password.length >= 4
+      puts "Hello, #{email}!"
+      true
+    else
+      puts 'Invalid email or password'
+      false
+    end
   end
 
-  def create(email, password)
-    @user = User.new
-    @user.status = true
-    @user.email = email
-    @user.password = password
-    @user.save!
-    puts "Hello, #{email}!"
-    {status: true, email: email, password: password}
+  def email_validator?(email)
+    email.match?(EMAIL_REGEX) && !find_by_email?(email)
+  end
+
+  private
+
+  DB_USERS = 'users.yml'
+
+  def find_by_email?(email)
+    hash = FileProcess.read_content(DB_USERS)
+    unless hash.nil? || hash.empty?
+      hash.find { |user| user[:email] == email }.nil? ? false : true
+    else
+      false
+    end
   end
 end

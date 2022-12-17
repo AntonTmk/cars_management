@@ -1,17 +1,22 @@
 # frozen_string_literal: true
 
 require_relative '../../config/requirements'
+require_relative 'authorization_menu'
 
 # module for navigating the application
-module StartMenu
-  attr_accessor :user
+class StartMenu
+  attr_accessor :autorization
+
+  def initialize
+    @authorization = AuthorizationMenu.new
+  end
 
   def call
     print_item(1, 'Search a car')
     print_item(2, 'Show all cars')
     print_item(3, 'Help')
     print_item(4, 'Exit')
-    account_menu
+    @authorization.menu_login
     choose_menu
   end
 
@@ -38,13 +43,9 @@ module StartMenu
     when '4'
       puts I18n.t('goodbye').colorize(:black).on_blue
       exit
-    when '5' then @user.status ? @user.log_out : @user.log_in
+    when '5'.."6" then @authorization.select_event(event)
     else
-      if event == "6" && !@user.status
-        @user.sing_up
-      else
         puts I18n.t('invalid request').colorize(:black).on_red
-      end
     end
   end
 
@@ -60,16 +61,5 @@ module StartMenu
     search_request.choose_sort
     search_result = SearchClass.new(search_request)
     search_result.print_result
-  end
-
-  def account_menu
-    #puts @user.status
-    if @user.nil? || !@user.status
-      @user = User.new
-      print_item(5, 'Log In')
-      print_item(6, 'Sing Up')
-    else
-      print_item(5, 'Log Out')
-    end
   end
 end
