@@ -18,7 +18,7 @@ class SearchClass
 
   def read_content(filename)
     car_list = FileProcess.read_content(filename)
-    car_list.find_all { |n| @request.car_eql_nil?(n) }
+    car_list.find_all { |n| @request.include?(n) }
   end
 
   def print_result

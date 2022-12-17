@@ -4,18 +4,18 @@ require_relative '../../config/requirements'
 
 # module for comparing search requests
 module CompareRequests
-  def text_check_nil?(var1, var2)
-    text_include?(var1.make, var2['make']) and
-      text_include?(var1.model, var2['model'])
+  def text_eql_or_nil?(request_hash, hash)
+    text_include?(request_hash.make, hash['make']) and
+      text_include?(request_hash.model, hash['model'])
   end
 
-  def num_check_nil?(var1, var2)
-    num_range?(var1.year_from, var1.year_to, var2['year']) and
-      num_range?(var1.price_from, var1.price_to, var2['price'])
+  def num_eql_or_nil?(request_hash, hash)
+    num_range?(request_hash.year_from, request_hash.year_to, hash['year']) and
+      num_range?(request_hash.price_from, request_hash.price_to, hash['price'])
   end
 
-  def text_include?(var1, var2)
-    var1.empty? || var1.casecmp(var2.to_s).zero?
+  def text_include?(request_hash, hash)
+    request_hash.empty? || request_hash.casecmp(hash.to_s).zero?
   end
 
   def num_range?(min, max, var)
