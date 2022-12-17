@@ -14,9 +14,9 @@ class BaseTable
     @table_headings = headings.to_a
   end
 
-  def add_content(val)
+  def add_content(content_array)
     @table_content = []
-    val.each { |var| @table_content << var.values }
+    content_array.each { |car| @table_content << car.values }
   end
 
   def table_print

@@ -37,16 +37,16 @@ class CarRequest
     @sort_direction = write_data('Please_choose_sort_direction')
   end
 
-  def write_data(message)
+  def write_data(i18n_key)
     puts I18n.t(message).colorize(:cyan)
     gets.chomp
   end
 
-  def car_hash(val1, val2)
+  def car_hash(request_quantity, total_quantity)
     { make: @make, model: @model,
       year_from: @year_from, year_to: @year_to,
       price_from: @price_from, price_to: @price_to,
-      requests_quantity: val1, total_quantity: val2 }
+      requests_quantity: request_quantity, total_quantity: total_quantity }
   end
 
   def include?(hash)

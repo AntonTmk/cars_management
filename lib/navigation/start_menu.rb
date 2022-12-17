@@ -16,7 +16,7 @@ module StartMenu
     choose_menu
   end
 
-  def print_item(num, text)
+  def print_item(num, i18n_key)
     puts "#{num}. #{I18n.t(text)}".colorize(:light_blue)
   end
 
