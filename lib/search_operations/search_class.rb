@@ -3,7 +3,7 @@
 require 'date'
 require_relative '../search_request/car_request'
 require_relative 'search_history'
-require_relative '../table/cars_table'
+require_relative '../view/table/cars_table'
 require_relative '../file_process'
 
 # class to get the result of a search request

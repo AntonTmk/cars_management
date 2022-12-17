@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../table/base_table'
+require_relative 'base_table'
 
 # module for creating tables from SearchResult
 module CarsTable
