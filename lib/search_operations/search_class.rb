@@ -14,8 +14,8 @@ class SearchClass
 
   CAR_DB = 'cars.yml'
 
-  def initialize(request)
-    @request = request
+  def initialize(car_request_obj)
+    @request = car_request_obj
     @result = read_filtered_content(CAR_DB)
     sort_result
     @request.total_quantity = @result.length

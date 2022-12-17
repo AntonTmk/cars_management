@@ -11,8 +11,8 @@ module SearchHistory
   DEFAULT_REQUESTS_QUANTITY = 1
   HISTORY_FILE_NAME = 'searches.yml'
 
-  def record_request(request)
-    @request = request
+  def record_request(car_request_obj)
+    @request = car_request_obj
     @history = read_content(HISTORY_FILE_NAME)
     @history ? edit_history : initialize_file
     update_content(HISTORY_FILE_NAME, @history)
