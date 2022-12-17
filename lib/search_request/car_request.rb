@@ -38,7 +38,7 @@ class CarRequest
   end
 
   def write_data(i18n_key)
-    puts I18n.t(message).colorize(:cyan)
+    puts I18n.t(i18n_key).colorize(:cyan)
     gets.chomp
   end
 

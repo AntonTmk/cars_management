@@ -17,7 +17,7 @@ module StartMenu
   end
 
   def print_item(num, i18n_key)
-    puts "#{num}. #{I18n.t(text)}".colorize(:light_blue)
+    puts "#{num}. #{I18n.t(i18n_key)}".colorize(:light_blue)
   end
 
   def choose_menu
@@ -46,14 +46,16 @@ module StartMenu
   def search_car
     search_request = CarRequest.new
     search_request.print_menu
-    search_result = SearchClass.new(search_request)
+    search_result = SearchClass.new
+    search_result.search_by_request(search_request)
     search_result.print_result
   end
 
   def all_cars
     search_request = CarRequest.new
     search_request.choose_sort
-    search_result = SearchClass.new(search_request)
+    search_result = SearchClass.new
+    search_result.search_by_request(search_request)
     search_result.print_result
   end
 end

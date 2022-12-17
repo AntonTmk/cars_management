@@ -14,20 +14,20 @@ class SearchClass
 
   CAR_DB = 'cars.yml'
 
-  def initialize(car_request_obj)
+  def search_by_request(car_request_obj)
     @request = car_request_obj
     @result = read_filtered_content(CAR_DB)
-    sort_result
     @request.total_quantity = @result.length
     record_request(@request) if @result.length.positive?
   end
 
   def read_filtered_content(filename)
     car_list = read_content(filename)
-    car_list.find_all { |n| @request.include?(n) }
+    car_list.find_all { |car| @request.include?(car) }
   end
 
   def print_result
+    sort_result
     print_table(@result, @request)
   end
 
