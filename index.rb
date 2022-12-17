@@ -2,8 +2,8 @@
 
 require_relative 'config/requirements'
 include StartMenu
-include TranslateText
+include TextTranslation
 
-TranslateText.available_languages
+TextTranslation.available_languages
 puts I18n.t('Welcome').colorize(:black).on_blue
 StartMenu.call

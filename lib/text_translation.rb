@@ -4,7 +4,7 @@ require 'i18n'
 require 'colorize'
 
 # class for translating program content
-module TranslateText
+module TextTranslation
   def available_languages
     puts "Please choose locale  #{I18n.available_locales}".colorize(:light_blue)
     change_language

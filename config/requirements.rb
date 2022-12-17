@@ -8,7 +8,7 @@ require 'colorize'
 # modules
 
 require_relative '../lib/navigation/start_menu'
-require_relative '../lib/translate_text'
+require_relative '../lib/text_translation'
 
 # config
 
