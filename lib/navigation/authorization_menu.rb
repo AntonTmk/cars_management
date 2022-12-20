@@ -8,6 +8,7 @@ require_relative '../user_account/create_account'
 # module for navigating the application
 class AuthorizationMenu
   attr_accessor :user
+
   include AccountLogin
   include LogOut
   include CreateAccount
