@@ -1,3 +1,9 @@
 ---
 - :email: example@mail.ua
   :password: "$2a$12$yOmPs5s02TW8iUIePfFt6esMYfiu7VX1KzWg3Dyjr5fY4BXwIdNlK"
+- :email: artem@mail.ua
+  :password: "$2a$12$HytoOD0KHdq2GlTNEuglM.2z5OjsEibhbTAyPl4gpFAo2QV8Pyqbi"
+- :email: my.email@mail.ua
+  :password: "$2a$12$6kb7XXMeENbczFFKjAbOYOeHplMMGeSsY6UmOlV3w0jMH.U96JwU."
+- :email: bob@mail.ua
+  :password: "$2a$12$sDhP0k19qL3H/AxHP4lPGO/Q3C/yeXOh7d3HNh8KVxudgUuDrHrYq"

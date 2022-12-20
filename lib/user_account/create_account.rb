@@ -13,10 +13,11 @@ module CreateAccount
   EMAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
   DB_USERS = 'data/users.yml'
 
-  def registration_attempt?(email, password)
+  def sing_up?(user_data_object)
     @errors = []
-    if email_validator?(email) && password_is_valid?(password)
-      puts "#{I18n.t('hello')}, #{email}!".colorize(:green)
+    if email_validator?(user_data_object.email) && password_is_valid?(user_data_object.password_hash)
+      puts "#{I18n.t('hello')}, #{user_data_object.email}!".colorize(:green)
+      user_data_object.save!
       true
     else
       @errors.each { |error| puts error.colorize(:red) }
