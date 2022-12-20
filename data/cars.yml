@@ -111,11 +111,3 @@
   price: 10650
   description: Official car
   date_added: 1/10/21
-- id: 12345678-330f-11ec-8d3d-0242ac130003
-  make: Seat
-  model: leon
-  year: '1998'
-  odometer: '78000'
-  price: '789'
-  description: BBBkar
-  date_added: 15/03/22

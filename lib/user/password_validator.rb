@@ -1,3 +1,5 @@
+require 'i18n'
+
 class PasswordValidator
   attr_accessor :password, :errors
 
@@ -6,10 +8,10 @@ class PasswordValidator
     @password = password
   end
 
-  def is_valid?
+  def valid?
     if password_uppercase? && password_lower_case? &&
        password_contains_number? && password_special_char? &&
-       @password.length > 8
+       password_length?
       true
     else
       false
@@ -17,32 +19,35 @@ class PasswordValidator
   end
 
   def password_uppercase?
-    !@password.match(/\p{Upper}/).nil?
-    # unless !!@password.match(/\p{Upper}/)
-    #   @errors << "#{@password}  must contain at least 1 uppercase "
-    # end
+    check_value?(!@password.match(/\p{Upper}/).nil?, 'password_upcase_error')
   end
 
   def password_lower_case?
-    !password.match(/\p{Lower}/).nil?
-    # unless !password.match(/\p{Lower}/).nil?
-    #   @errors << "#{@password} must contain at least 1 lowercase"
-    # end
+    check_value?(!@password.match(/\p{Lower}/).nil?, 'password_lowercase_error')
   end
 
   def password_special_char?
     special = "?<>',?[]}{=-)(*&^%$#`~{}!_"
     regex = /[#{special.gsub(/./){|char| "\\#{char}"}}]/
-    !@password.match(regex).nil?
-    # unless !@password.match(regex).nil?
-    #   @errors << "#{@password} must contain special character"
-    # end
+    check_value?(!@password.match(regex).nil?, 'password_special_character_error')
   end
 
   def password_contains_number?
-    @password.count("0-9") > 0
-    # unless @password.count("0-9") > 0
-    #  @errors << "#{@password} must contain at least one number"
-    # end
+    check_value?(@password.count("0-9").positive?, 'password_number_error')
+  end
+
+  def password_length?
+    check_value?(@password.length > 8, 'password_long_error')
+  end
+
+  def check_value?(condition, i18n_error_key)
+    puts i18n_error_key
+    puts condition
+    if condition
+      true
+    else
+      @errors << I18n.t(i18n_error_key).to_s
+      false
+    end
   end
 end

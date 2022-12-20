@@ -11,7 +11,7 @@ class User
   include AccountLogin
   attr_accessor :email, :password_hash, :status
 
-  DB_USERS = 'users.yml'
+  DB_USERS = 'data/users.yml'.freeze
 
   def initialize
     @status = false

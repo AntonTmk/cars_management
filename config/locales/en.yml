@@ -47,6 +47,17 @@ en:
   Enter the menu item number: "Enter the menu item number"
 
   goodbye: "Goodbye!"
+  hello: "Hello"
 
   email: "input email please:"
   password: "input password please:"
+
+  used_email_error: "This mail is already in use"
+  invalid_email: "Invalid email \n Email format must be: example@domen.***"
+
+  password_upcase_error: "Password must contain at least one uppercase letter"
+  password_lowercase_error: "Password must contain at least one lowercase letter"
+  password_special_character_error: "Password must contain at least one special character"
+  password_number_error: "The password must contain at least one number"
+  password_long_error: "The password must be at least 8 characters long"
+
