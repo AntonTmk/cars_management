@@ -5,5 +5,5 @@ include TextTranslation
 
 TextTranslation.available_languages
 puts I18n.t('Welcome').colorize(:black).on_blue
-startMenu = StartMenu.new
-startMenu.call
+start_menu = StartMenu.new
+start_menu.call

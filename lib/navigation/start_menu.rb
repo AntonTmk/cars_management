@@ -46,7 +46,7 @@ class StartMenu
     when '4'
       puts I18n.t('goodbye').colorize(:black).on_blue
       exit
-    when '5'.."6" then @authorization.select_event(event)
+    when '5'..'6' then @authorization.select_event(event)
     else puts I18n.t('invalid_request').colorize(:black).on_red
     end
   end

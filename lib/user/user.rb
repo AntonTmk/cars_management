@@ -13,7 +13,7 @@ class User
   include FileProcess
   attr_accessor :email, :password_hash, :status
 
-  DB_USERS = 'data/users.yml'.freeze
+  DB_USERS = 'data/users.yml'
 
   def initialize
     @status = false
@@ -36,18 +36,18 @@ class User
   end
 
   def log_out
-    @email = ""
-    @password_hash = ""
+    @email = ''
+    @password_hash = ''
     @status = false
   end
 
   def sing_up(email, password)
-    if registration_attempt?(email, password)
-      add_data(email, password)
-      save!
-    end
+    return unless registration_attempt?(email, password)
+
+    add_data(email, password)
+    save!
   end
-  
+
   def add_data(email, password)
     @status = true
     @email = email

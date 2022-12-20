@@ -17,7 +17,7 @@ module AccountLogin
                      puts "#{I18n.t('hello')}, #{email}!".colorize(:green)
                      true
                    else
-                     puts "#{I18n.t('Log_In_fail')}".colorize(:red)
+                     puts I18n.t('Log_In_fail').colorize(:red)
                      false
                    end
     @user.status
@@ -25,15 +25,15 @@ module AccountLogin
 
   private
 
-  DB_USERS = 'data/users.yml'.freeze
+  DB_USERS = 'data/users.yml'
 
   def find_by_email(email)
     hash = read_content(DB_USERS)
-    unless hash.nil? || hash.empty?
-      user = hash.find { |user| user[:email] == email }
-      @user = User.new
-      @user.email = email
-      @user.password_hash = Password.new(user[:password])
-    end
+    return if hash.nil? || hash.empty?
+
+    user = hash.find { |users| users[:email] == email }
+    @user = User.new
+    @user.email = email
+    @user.password_hash = Password.new(user[:password])
   end
 end

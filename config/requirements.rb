@@ -5,7 +5,7 @@
 require 'i18n'
 require 'colorize'
 
-#cclasses
+# classes
 
 require_relative '../lib/navigation/start_menu'
 

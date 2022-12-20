@@ -1,4 +1,4 @@
-
+# frozen_string_literal: true
 
 require_relative 'password_validator'
 require_relative '../file_process'
@@ -9,8 +9,9 @@ require 'i18n'
 module CreateAccount
   include FileProcess
   attr_accessor :errors
+
   EMAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-  DB_USERS = 'data/users.yml'.freeze
+  DB_USERS = 'data/users.yml'
 
   def registration_attempt?(email, password)
     @errors = []
@@ -40,8 +41,6 @@ module CreateAccount
       false
     end
   end
-
-  private
 
   def find_by_email?(email)
     hash = read_content(DB_USERS)

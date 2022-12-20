@@ -11,7 +11,7 @@ module FileProcess
 
   def add_content(file_name, new_content)
     content = if read_content(file_name)
-                read_content(file_name)<<new_content
+                read_content(file_name) << new_content
               else
                 [new_content]
               end

@@ -31,21 +31,20 @@ class AuthorizationMenu
   end
 
   def log_in_menu
-    puts I18n.t("Login_to_account")
-    puts I18n.t("input_email_please")
+    puts I18n.t('Login_to_account')
+    puts I18n.t('input_email_please')
     email = gets.chomp
-    puts I18n.t("input_password_please")
+    puts I18n.t('input_password_please')
     password = gets.chomp
     @user.log_in(email, password)
   end
 
   def sing_up_menu
-    puts I18n.t("Sing_Up")
-    puts I18n.t("input_email_please")
+    puts I18n.t('"Sing_Up')
+    puts I18n.t('input_email_please')
     email = gets.chomp
-    puts I18n.t("input_password_please")
+    puts I18n.t('input_password_please')
     password = gets.chomp
     @user.sing_up(email, password)
   end
 end
-

@@ -2,6 +2,7 @@
 
 require 'i18n'
 
+# check if password valid
 class PasswordValidator
   attr_accessor :password, :errors
 
@@ -30,12 +31,12 @@ class PasswordValidator
 
   def password_special_char?
     special = "?<>',?[]}{=-)(*&^%$#`~{}!_"
-    regex = /[#{special.gsub(/./){|char| "\\#{char}"}}]/
+    regex = /[#{special.gsub(/./) { |char| "\\#{char}" }}]/
     check_value?(!@password.match(regex).nil?, 'password_special_character_error')
   end
 
   def password_contains_number?
-    check_value?(@password.count("0-9").positive?, 'password_number_error')
+    check_value?(@password.count('0-9').positive?, 'password_number_error')
   end
 
   def password_length?
