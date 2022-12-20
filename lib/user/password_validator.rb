@@ -2,6 +2,7 @@
 
 require 'i18n'
 
+# class for checking password
 class PasswordValidator
   attr_accessor :password, :errors
 
