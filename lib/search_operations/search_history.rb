@@ -1,19 +1,21 @@
 # frozen_string_literal: true
 
 require_relative '../../config/requirements'
+require_relative '../file_process'
 
 # module for saving searches requests
 module SearchHistory
+  include FileProcess
   attr_accessor :request, :history
 
   DEFAULT_REQUESTS_QUANTITY = 1
-  HISTORY_FILE_NAME = 'searches.yml'
+  HISTORY_FILE_NAME = 'data/searches.yml'
 
-  def record_request(request)
-    @request = request
-    @history = FileProcess.read_content(HISTORY_FILE_NAME)
+  def record_request(car_request_obj)
+    @request = car_request_obj
+    @history = read_content(HISTORY_FILE_NAME)
     @history ? edit_history : initialize_file
-    FileProcess.update_content(HISTORY_FILE_NAME, @history)
+    update_content(HISTORY_FILE_NAME, @history)
   end
 
   private

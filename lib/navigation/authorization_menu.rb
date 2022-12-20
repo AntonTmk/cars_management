@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../config/requirements'
+require_relative '../user/user'
 
 # module for navigating the application
 class AuthorizationMenu
@@ -9,10 +9,10 @@ class AuthorizationMenu
   def menu_login
     if @user.nil? || !@user.status
       @user = User.new
-      print_item(5, 'Log In')
-      print_item(6, 'Sing Up')
+      print_item(5, 'Log_In')
+      print_item(6, 'Sing_Up')
     else
-      print_item(5, 'Log Out')
+      print_item(5, 'Log_Out')
     end
   end
 
@@ -26,24 +26,24 @@ class AuthorizationMenu
     when ['5', false] then log_in_menu
     when ['6', false] then sing_up_menu
     else
-      puts I18n.t('invalid request').colorize(:black).on_red
+      puts I18n.t('invalid_request').colorize(:black).on_red
     end
   end
 
   def log_in_menu
-      puts "Login to account"
-      puts "input email please:"
-      email = gets.chomp
-      puts "input password please:"
-      password = gets.chomp
-      @user.log_in(email, password)
+    puts I18n.t("Login_to_account")
+    puts I18n.t("input_email_please")
+    email = gets.chomp
+    puts I18n.t("input_password_please")
+    password = gets.chomp
+    @user.log_in(email, password)
   end
 
   def sing_up_menu
-    puts "Create account"
-    puts "input email please:"
+    puts I18n.t("Sing_Up")
+    puts I18n.t("input_email_please")
     email = gets.chomp
-    puts "input password please:"
+    puts I18n.t("input_password_please")
     password = gets.chomp
     @user.sing_up(email, password)
   end

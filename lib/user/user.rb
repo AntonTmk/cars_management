@@ -3,15 +3,17 @@
 require_relative '../../config/requirements'
 require_relative 'account_login'
 require_relative 'create_account'
+require_relative '../file_process'
 
 # class for user
 class User
   include BCrypt
   include CreateAccount
   include AccountLogin
+  include FileProcess
   attr_accessor :email, :password_hash, :status
 
-  DB_USERS = 'users.yml'
+  DB_USERS = 'data/users.yml'.freeze
 
   def initialize
     @status = false
@@ -26,11 +28,11 @@ class User
   end
 
   def save!
-    FileProcess.add_content(DB_USERS, { email: @email, password: @password_hash.to_s })
+    add_content(DB_USERS, { email: @email, password: @password_hash.to_s })
   end
 
   def log_in(email, password)
-    add_data(email, password) if AccountLogin.login_data_valid?(email, password)
+    add_data(email, password) if login_data_valid?(email, password)
   end
 
   def log_out

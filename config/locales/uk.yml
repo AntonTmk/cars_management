@@ -12,19 +12,19 @@ uk:
   description: "Опис"
   date_added: "Дата додавання"
 
-  Please select search rules: "Виберіть правила пошуку"
+  Please_select_search_rules: "Виберіть правила пошуку"
 
-  Please choose make: "Оберіть виробника: "
-  Please choose model: "Виберіть модель:"
-  Please choose year_from: "Виберіть рік із:"
-  Please choose year_to: "Виберіть рік до:"
-  Please choose price_from: "Введіть початкову ціну:"
-  Please choose price_to: "Виберіть максимальну ціну:"
-  Please choose sort option: "Виберіть тип сортування (date_added|price):"
-  Please choose sort direction: "Виберіть напрямок сортування(desc|asc):"
+  Please_choose_make: "Оберіть виробника: "
+  Please_choose_model: "Виберіть модель:"
+  Please_choose_year_from: "Виберіть рік із:"
+  Please_choose_year_to: "Виберіть рік до:"
+  Please_choose_price_from: "Введіть початкову ціну:"
+  Please_choose_price_to: "Виберіть максимальну ціну:"
+  Please_choose_sort_option: "Виберіть тип сортування (date_added|price):"
+  Please_choose_sort_direction: "Виберіть напрямок сортування(desc|asc):"
 
-  press ENTER button to return menu: "Натисніть кнопку ENTER, щоб повернутися до меню"
-  help message: "Ви можете використовувати цю програму для пошуку автомобілів у файлі cars.yml із потрібними параметрами \n
+  press_ENTER_button_to_return_menu: "Натисніть кнопку ENTER, щоб повернутися до меню"
+  help_message: "Ви можете використовувати цю програму для пошуку автомобілів у файлі cars.yml із потрібними параметрами \n
   Доступні фільтри: \n
   * Виробник\n
   * модель \n
@@ -34,16 +34,31 @@ uk:
   * ціна до \n
   Також ви можете вибрати варіант сортування \n"
 
-  Enter the menu item number: "Введіть номер пункту меню"
-  invalid request: "Невірний запит \n Спробуйте ще раз"
+  Enter_the_menu_item_number: "Введіть номер пункту меню"
+  invalid_request: "Невірний запит \n Дозволені запити: 1, 2, 3 або 4 \n Спробуйте ще раз"
 
   Welcome: "Ласкаво просимо до Car Management"
-  Search a car: "Пошук автомобіля"
-  Show all cars: "Показати всі машини"
-  Log In: "Увійти до особистого кабінету"
-  Sing Up: "Створити обліковий запис"
-  Log Out: "Вийти з особистого кабінету"
+  Search_a_car: "Пошук автомобіля"
+  Show_all_cars: "Показати всі машини"
+  Log_In: "Увійти до особистого кабінету"
+  Sing_Up: "Створити обліковий запис"
+  Log_Out: "Вийти з особистого кабінету"
   Help: "Довідка"
   Exit: "Вихід"
 
   goodbye: "Вихід  "
+  hello: "Привіт"
+
+  used_email_error: "Ця пошта вже використовується"
+  invalid_email: "Невірний формат адреси \n Приклад електронної адреси: example@domen.***"
+
+  password_upcase_error: "Пароль має містити принаймні одну велику літеру"
+  password_lowercase_error: "Пароль має містити принаймні одну малу літеру"
+  password_special_character_error: "Пароль повинен містити хоча б один спеціальний символ"
+  password_number_error: "Пароль повинен містити принаймні одну цифру"
+  password_long_error: "Пароль має бути не менше 8 символів"
+
+  Login_to_account: "Вхід до облікового запису"
+  input_email_please: "Введіть електронну адресу:"
+  input_password_please: "Введіть пароль:"
+  Log_In_fail: "Помилка входу"

@@ -1,28 +1,35 @@
 # frozen_string_literal: true
 
-require_relative '../../config/requirements'
+require 'date'
+require_relative '../search_request/car_request'
+require_relative 'search_history'
+require_relative '../view/table/cars_table'
+require_relative '../file_process'
 
 # class to get the result of a search request
 class SearchClass
+  include CarsTable
+  include SearchHistory
+  include FileProcess
   attr_accessor :request, :result
 
-  CAR_DB = 'cars.yml'
+  CAR_DB = 'data/cars.yml'
 
-  def initialize(req)
-    @request = req
-    @result = read_content(CAR_DB)
-    sort_result
+  def search_by_request(car_request_obj)
+    @request = car_request_obj
+    @result = read_filtered_content(CAR_DB)
     @request.total_quantity = @result.length
-    SearchHistory.record_request(@request) if @result.length.positive?
+    record_request(@request) if @result.length.positive?
   end
 
-  def read_content(filename)
-    car_list = FileProcess.read_content(filename)
-    car_list.find_all { |n| @request.car_eql_nil?(n) }
+  def read_filtered_content(filename)
+    car_list = read_content(filename)
+    car_list.find_all { |car| @request.include?(car) }
   end
 
   def print_result
-    ResultTable.print_table(@result, @request)
+    sort_result
+    print_table(@result, @request)
   end
 
   private
@@ -37,13 +44,10 @@ class SearchClass
   end
 
   def sort_by_price
-    @result.sort_by { |v| v['price'] }
+    @result.sort_by { |car| car['price'] }
   end
 
   def sort_by_date
-    @result.sort_by do |v|
-      d, m, y = v['date_added'].split('/')
-      [y.to_i, m.to_i, d.to_i]
-    end
+    @result.sort_by { |car| Date.strptime(car['date_added'], '%d/%m/%y') }
   end
 end
