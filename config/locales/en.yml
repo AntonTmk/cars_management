@@ -71,3 +71,4 @@ en:
   input_email_please: "Input email please:"
   input_password_please: "Input password please:"
   Log_In_fail: "Log In fail"
+  no_history: "Your history is empty now"
