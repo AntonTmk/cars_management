@@ -7,7 +7,6 @@ require 'colorize'
 
 # class for navigating the application
 module UsersHistoryMenu
-
   def print_history_menu
     print_item(6, 'my_history')
   end
