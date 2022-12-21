@@ -3,6 +3,7 @@
 require_relative '../search_request/car_request'
 require_relative '../search_operations/search_class'
 require_relative 'authorization_menu'
+require_relative '../search_operations/user_search_history/save_user_search_history'
 require 'i18n'
 require 'colorize'
 
@@ -57,6 +58,13 @@ class StartMenu
     search_result = SearchClass.new
     search_result.search_by_request(search_request)
     search_result.print_result
+    save_request(search_result.request) if @authorization.user.status
+  end
+
+  def save_request(request)
+    history = SaveUserSearchHistory.new(@authorization.user.email)
+    request.requests_quantity = 1
+    history.save_search_request(request)
   end
 
   def all_cars

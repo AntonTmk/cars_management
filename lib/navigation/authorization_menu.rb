@@ -2,12 +2,14 @@
 
 require_relative '../user_account/user_data'
 require_relative '../user_account/user_auth'
+require_relative 'user_history_menu'
 
 # module for navigating the application
 class AuthorizationMenu
   attr_accessor :user
 
   include UserAuth
+  include UsersHistoryMenu
 
   def initialize
     @user = UserData.new('email', 'password')
@@ -19,6 +21,7 @@ class AuthorizationMenu
       print_item(6, 'Sing_Up')
     else
       print_item(5, 'Log_Out')
+      print_history_menu
     end
   end
 
@@ -31,6 +34,7 @@ class AuthorizationMenu
     when ['5', true] then @user = UserAuth.log_out(@user)
     when ['5', false] then log_in_menu
     when ['6', false] then sing_up_menu
+    when ['6', true] then users_history(@user.email)
     else
       puts I18n.t('invalid_request').colorize(:black).on_red
     end

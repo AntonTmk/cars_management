@@ -12,6 +12,13 @@ uk:
   description: "Опис"
   date_added: "Дата додавання"
 
+  price_from: "Ціна з"
+  price_to: "Ціна до"
+  year_from: "рік з"
+  year_to: "рік до"
+
+  my_history: "Моя історія пошуку"
+
   Please_select_search_rules: "Виберіть правила пошуку"
 
   Please_choose_make: "Оберіть виробника: "

@@ -12,6 +12,14 @@ en:
   description: "description"
   date_added: "date added"
 
+
+  price_to: "price to"
+  year_from: "year from"
+  year_to: "year to"
+  price_from: "year from"
+
+  my_history: "My search history"
+
   Please_select_search_rules: "Please select search rules"
 
   Please_choose_make: "Please choose make:"

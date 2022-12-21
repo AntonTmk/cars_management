@@ -5,7 +5,7 @@
   :year_to: 0
   :price_from: 0
   :price_to: 0
-  :requests_quantity: 36
+  :requests_quantity: 39
   :total_quantity: 14
 - :make: InfIniti
   :model: ''
@@ -13,7 +13,7 @@
   :year_to: 0
   :price_from: 0
   :price_to: 0
-  :requests_quantity: 5
+  :requests_quantity: 7
   :total_quantity: 1
 - :make: PeugEot
   :model: ''
@@ -21,5 +21,5 @@
   :year_to: 0
   :price_from: 0
   :price_to: 0
-  :requests_quantity: 4
+  :requests_quantity: 6
   :total_quantity: 1

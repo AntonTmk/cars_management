@@ -49,6 +49,10 @@ class CarRequest
       requests_quantity: request_quantity, total_quantity: total_quantity }
   end
 
+  def full_car_hash
+    car_hash(@requests_quantity, @total_quantity)
+  end
+
   def include?(hash)
     text_eql_or_nil?(self, hash) && num_eql_or_nil?(self, hash)
   end
