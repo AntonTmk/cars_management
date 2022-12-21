@@ -30,7 +30,7 @@ class PasswordValidator
   end
 
   def password_special_char?
-    special = "?<>',?[]}{=-)(*&^%$#`~{}!_"
+    special = "?<>',?[]}{=-)(*&^%$#`~{}!_@"
     regex = /[#{special.gsub(/./) { |char| "\\#{char}" }}]/
     check_value?(!@password.match(regex).nil?, 'password_special_character_error')
   end
