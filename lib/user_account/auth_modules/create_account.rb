@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative 'password_validator'
-require_relative '../file_process'
+require_relative '../password_validator'
+require_relative '../../file_process'
 require 'colorize'
 require 'i18n'
 

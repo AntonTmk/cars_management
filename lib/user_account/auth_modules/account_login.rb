@@ -2,7 +2,7 @@
 
 require 'i18n'
 require 'bcrypt'
-require_relative '../file_process'
+require_relative '../../file_process'
 
 # module for checking login parameters
 module AccountLogin

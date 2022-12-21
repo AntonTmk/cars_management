@@ -1,17 +1,13 @@
 # frozen_string_literal: true
 
 require_relative '../user_account/user_data'
-require_relative '../user_account/account_login'
-require_relative '../user_account/log_out'
-require_relative '../user_account/create_account'
+require_relative '../user_account/user_auth'
 
 # module for navigating the application
 class AuthorizationMenu
   attr_accessor :user
 
-  include AccountLogin
-  include LogOut
-  include CreateAccount
+  include UserAuth
 
   def initialize
     @user = UserData.new('email', 'password')
@@ -32,7 +28,7 @@ class AuthorizationMenu
 
   def select_event(event)
     case [event, @user.status]
-    when ['5', true] then @user = log_out(@user)
+    when ['5', true] then @user = UserAuth.log_out(@user)
     when ['5', false] then log_in_menu
     when ['6', false] then sing_up_menu
     else
@@ -47,7 +43,7 @@ class AuthorizationMenu
     puts I18n.t('input_password_please')
     password = gets.chomp
     @user = UserData.new(email, password)
-    @user = log_in(@user)
+    @user = UserAuth.log_in(@user)
   end
 
   def sing_up_menu
@@ -57,6 +53,6 @@ class AuthorizationMenu
     puts I18n.t('input_password_please')
     password = gets.chomp
     @user = UserData.new(email, password)
-    @user.status = sing_up?(@user)
+    @user.status = UserAuth.sing_up?(@user)
   end
 end
