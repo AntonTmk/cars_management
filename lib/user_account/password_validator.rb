@@ -12,13 +12,8 @@ class PasswordValidator
   end
 
   def valid?
-    if password_uppercase? && password_lower_case? &&
-       password_contains_number? && password_special_char? &&
-       password_length?
-      true
-    else
-      false
-    end
+    password_errors_check
+    @errors.empty?
   end
 
   def password_uppercase?
@@ -32,7 +27,7 @@ class PasswordValidator
   def password_special_char?
     special = "?<>',?[]}{=-)(*&^%$#`~{}!_@"
     regex = /[#{special.gsub(/./) { |char| "\\#{char}" }}]/
-    check_value?(!@password.match(regex).nil?, 'password_special_character_error')
+    check_value?(@password.scan(regex).length >= 2, 'password_special_character_error')
   end
 
   def password_contains_number?
@@ -40,7 +35,7 @@ class PasswordValidator
   end
 
   def password_length?
-    check_value?(@password.length > 8, 'password_long_error')
+    check_value?((8..20).include?(@password.length), 'password_long_error')
   end
 
   def check_value?(condition, i18n_error_key)
@@ -50,5 +45,13 @@ class PasswordValidator
       @errors << I18n.t(i18n_error_key).to_s
       false
     end
+  end
+
+  def password_errors_check
+    password_uppercase?
+    password_lower_case?
+    password_contains_number?
+    password_special_char?
+    password_length?
   end
 end

@@ -54,9 +54,10 @@ en:
 
   password_upcase_error: "Password must contain at least one uppercase letter"
   password_lowercase_error: "Password must contain at least one lowercase letter"
-  password_special_character_error: "Password must contain at least one special character"
+  password_special_character_error: "Password must contain at least two special character \n
+    List of special characters: ? < > ' , ? [ ] } { = - ) ( * & ^ % $ # ` ~ { } ! _ @"
   password_number_error: "The password must contain at least one number"
-  password_long_error: "The password must be at least 8 characters long"
+  password_long_error: "The password must be at 8 - 20 characters long"
 
   Login_to_account: "Login to account"
   input_email_please: "Input email please:"
