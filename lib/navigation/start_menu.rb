@@ -58,13 +58,12 @@ class StartMenu
     search_result = SearchClass.new
     search_result.search_by_request(search_request)
     search_result.print_result
-    save_request(search_result.request) if @authorization.user.status
+    save_request(search_result.request.id) if @authorization.user.status
   end
 
-  def save_request(request)
+  def save_request(requests_id)
     history = SaveUserSearchHistory.new(@authorization.user.email)
-    request.requests_quantity = 1
-    history.save_search_request(request)
+    history.save_search_request(requests_id)
   end
 
   def all_cars

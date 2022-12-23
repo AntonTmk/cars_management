@@ -16,8 +16,8 @@ class SaveUserSearchHistory
     @user_email = email
   end
 
-  def save_search_request(search_request)
-    @search_request = search_request
+  def save_search_request(search_request_id)
+    @search_request_id = search_request_id
     user_history_list = ReadUserSearchHistory.new(@user_email)
     @history_list = user_history_list.read_history_from_db
     users_history_exist? ? update_users_history : add_new_users_history
@@ -31,7 +31,7 @@ class SaveUserSearchHistory
   def add_new_users_history
     @history_list = [] if @history_list.nil?
     @search_request.requests_quantity = 1
-    @history_list << { user_email: @user_email, history: [@search_request.id] }
+    @history_list << { user_email: @user_email, history: [@search_request_id] }
   end
 
   def update_users_history
@@ -41,8 +41,6 @@ class SaveUserSearchHistory
   end
 
   def update_history_request(users_history)
-    unless users_history.include?(@search_request.id)
-      users_history << @search_request.id
-    end
+    users_history << @search_request_id unless users_history.include?(@search_request_id)
   end
 end
