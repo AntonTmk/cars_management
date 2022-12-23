@@ -19,22 +19,22 @@ class SaveUserSearchHistory
   def save_search_request(search_request)
     @search_request = search_request
     user_history_list = ReadUserSearchHistory.new(@user_email)
-    @history_list = user_history_list.read_history
-    user_history_exist? ? update_user_history : add_user_history
+    @history_list = user_history_list.read_history_from_db
+    users_history_exist? ? update_users_history : add_new_users_history
     update_content(USER_HISTORY_DB, history_list)
   end
 
-  def user_history_exist?
+  def users_history_exist?
     !@history_list.nil? && !@history_list.find { |history| history[:user_email] == @user_email }.nil?
   end
 
-  def add_user_history
+  def add_new_users_history
     @history_list = [] if @history_list.nil?
-    @search_request.requests_quantity += 1
+    @search_request.requests_quantity = 1
     @history_list << { user_email: @user_email, history: [@search_request.full_car_hash] }
   end
 
-  def update_user_history
+  def update_users_history
     @history_list.each do |user|
       update_history_request(user[:history]) if user[:user_email] == @user_email
     end
