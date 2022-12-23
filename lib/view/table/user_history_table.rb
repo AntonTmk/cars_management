@@ -7,8 +7,13 @@ module UserHistoryTable
   def print_table(content, email)
     table = BaseTable.new(table_title(email))
     table.add_headings(table_heading)
-    table.add_content(content)
+    table.add_content(formatted_content(content))
     table.table_print
+  end
+
+  def formatted_content(content)
+    content.map { |request| request.delete(:id) }
+    content
   end
 
   def table_title(email)

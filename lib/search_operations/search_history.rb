@@ -22,7 +22,8 @@ module SearchHistory
 
   def initialize_file
     @request.requests_quantity = DEFAULT_REQUESTS_QUANTITY
-    @history = [@request.car_hash(DEFAULT_REQUESTS_QUANTITY, @request.total_quantity)]
+    @history = []
+    add_request(@history)
   end
 
   def edit_history
@@ -31,7 +32,8 @@ module SearchHistory
 
   def add_request(list)
     @request.requests_quantity = DEFAULT_REQUESTS_QUANTITY
-    list << @request.car_hash(DEFAULT_REQUESTS_QUANTITY, @request.total_quantity)
+    @request.id = list.length
+    list << @request.car_hash(list.length, DEFAULT_REQUESTS_QUANTITY, @request.total_quantity)
   end
 
   def update_request(list)
@@ -39,6 +41,7 @@ module SearchHistory
       next unless compare_req?(list[v])
 
       increase_record(list[v], @request.total_quantity)
+      @request.id = v
     end
   end
 

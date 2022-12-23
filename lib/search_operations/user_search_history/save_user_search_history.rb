@@ -31,7 +31,7 @@ class SaveUserSearchHistory
   def add_new_users_history
     @history_list = [] if @history_list.nil?
     @search_request.requests_quantity = 1
-    @history_list << { user_email: @user_email, history: [@search_request.full_car_hash] }
+    @history_list << { user_email: @user_email, history: [@search_request.id] }
   end
 
   def update_users_history
@@ -41,18 +41,8 @@ class SaveUserSearchHistory
   end
 
   def update_history_request(users_history)
-    if history_include_request?(users_history)
-      history_increase_request(users_history)
-    else
-      users_history << @search_request.full_car_hash
+    unless users_history.include?(@search_request.id)
+      users_history << @search_request.id
     end
-  end
-
-  def history_increase_request(users_history)
-    users_history.each { |request| request[:requests_quantity] += 1 if @search_request.car_eql?(request) }
-  end
-
-  def history_include_request?(history)
-    !history.select { |request| @search_request.car_eql?(request) }.empty?
   end
 end
