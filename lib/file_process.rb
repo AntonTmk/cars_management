@@ -4,18 +4,19 @@ require_relative '../config/requirements'
 
 # module for working with files
 module FileProcess
-  def read_content(filename)
-    file_exist(filename)
-    YAML.load(File.read(filename))
+  def update_content(file_name, content)
+    file_exist(file_name)
+    File.write(file_name, content.to_yaml)
   end
 
-  def update_content(filename, content)
-    File.write(filename, content.to_yaml)
+  def read_content(file_name)
+    file_exist(file_name)
+    YAML.load(File.read(file_name))
   end
 
   private
 
-  def file_exist(filename)
-    File.new(filename, 'w') unless File.exist?(filename)
+  def file_exist(file_name)
+    File.new(file_name, 'w') unless File.exist?(file_name)
   end
 end
