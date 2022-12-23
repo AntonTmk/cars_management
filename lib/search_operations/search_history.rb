@@ -7,12 +7,12 @@ module SearchHistory
   attr_accessor :request, :history
 
   DEFAULT_REQUESTS_QUANTITY = 1
-  HISTORY_FILE_NAME = 'searches.yml'
+  HISTORY_FILE_NAME = 'searches.yml'.freeze
 
   def record_request(request)
     @request = request
     @history = FileProcess.read_content(HISTORY_FILE_NAME)
-    @history ? edit_history : initialize_file
+    !@history ? initialize_file : edit_history
     FileProcess.update_content(HISTORY_FILE_NAME, @history)
   end
 

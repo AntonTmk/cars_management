@@ -1,9 +1,9 @@
-
+# frozen_string_literal: true
 
 require_relative '../../config/requirements'
 
+# module for creating tables from SearchResult
 module ResultTable
-
   def print_table(content, request)
     table = CreateTable.new(table_title(request))
     table.add_headings(table_heading)

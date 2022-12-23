@@ -2,6 +2,7 @@ en:
   task_title: "Cars Management"
   requests_quantity: "Requests quantity"
   total_quantity: "Total quantity"
+
   id: "id"
   make: "make"
   model: "model"
@@ -10,7 +11,9 @@ en:
   price: "price"
   description: "description"
   date_added: "date added"
+
   Please select search rules: "Please select search rules"
+
   Please choose make: "Please choose make:"
   Please choose model: "Please choose model:"
   Please choose year_from: "Please choose year_from:"

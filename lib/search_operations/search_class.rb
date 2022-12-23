@@ -6,7 +6,7 @@ require_relative '../../config/requirements'
 class SearchClass
   attr_accessor :request, :result
 
-  CAR_DB = 'cars.yml'
+  CAR_DB = 'cars.yml'.freeze
 
   def initialize(req)
     @request = req
@@ -46,7 +46,4 @@ class SearchClass
       [y.to_i, m.to_i, d.to_i]
     end
   end
-
-
-
 end
