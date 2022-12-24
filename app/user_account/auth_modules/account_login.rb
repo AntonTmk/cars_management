@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-require 'i18n'
-require 'bcrypt'
+require './config/requirements'
 require_relative '../../file_process'
 
 # module for checking login parameters
@@ -30,6 +29,6 @@ module AccountLogin
     return if hash.nil? || hash.empty?
 
     user = hash.find { |users| users[:email] == email }
-    @user = UserData.new(email, Password.new(user[:password]))
+    @user = user.nil? ? UserData.new(nil, nil) : UserData.new(email, Password.new(user[:password]))
   end
 end

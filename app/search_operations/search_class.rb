@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
-require 'date'
-require_relative '../search_request/car_request'
 require_relative 'search_history'
-require_relative '../view/table/cars_table'
-require_relative '../file_process'
+require './config/requirements'
+require './app/view/table/cars_table'
+require './app/file_process'
 
 # class to get the result of a search request
 class SearchClass

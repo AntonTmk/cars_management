@@ -2,8 +2,6 @@
 
 require_relative '../password_validator'
 require_relative '../../file_process'
-require 'colorize'
-require 'i18n'
 
 # register data validator
 module CreateAccount

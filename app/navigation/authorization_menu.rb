@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../user_account/user_data'
-require_relative '../user_account/user_auth'
+require './config/requirements'
 
 # module for navigating the application
 class AuthorizationMenu

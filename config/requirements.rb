@@ -1,18 +1,32 @@
 # frozen_string_literal: true
 
-# gems
-
 require 'i18n'
 require 'colorize'
+require 'date'
+require 'bcrypt'
+require 'yaml'
 
 # classes
 
-require_relative '../lib/navigation/start_menu'
+require './app/navigation/start_menu'
 
 # modules
 
-require_relative '../lib/text_translation'
+require './app/text_translation'
 
 # config
 
-require_relative '../config/initializers/i18n'
+require './config/initializers/i18n'
+
+require './app/user_account/user_data'
+require './app/user_account/user_auth'
+
+
+require './app/search_request/car_request'
+require './app/search_operations/search_class'
+require './app/navigation/authorization_menu'
+
+require './app/search_request/car_request'
+require './app/search_operations/search_history'
+require './app/view/table/cars_table'
+require './app/file_process'

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-require 'bcrypt'
+require './config/requirements'
+require './app/file_process'
 
 # class for user_account
 class UserData
