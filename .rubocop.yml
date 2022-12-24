@@ -4,5 +4,5 @@ Security/YAMLLoad:
 Style/MixinUsage:
   Enabled: false
 
-Style/RedundantRegexpEscape:
-  Enabled: false
+#Style/RedundantRegexpEscape:
+#  Enabled: false

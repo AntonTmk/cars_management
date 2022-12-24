@@ -10,7 +10,7 @@ module CreateAccount
   include FileProcess
   attr_accessor :errors
 
-  EMAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+  EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   DB_USERS = 'data/users.yml'
 
   def sing_up?(user_data_object)

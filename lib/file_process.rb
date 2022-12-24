@@ -10,11 +10,7 @@ module FileProcess
   end
 
   def add_content(file_name, new_content)
-    content = if read_content(file_name)
-                read_content(file_name) << new_content
-              else
-                [new_content]
-              end
+    content = read_content(file_name) if content.blank? ? [new_content] : content << new_content
     File.write(file_name, content.to_yaml)
   end
 

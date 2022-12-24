@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative '../search_request/car_request'
-require_relative '../search_operations/search_class'
+require_relative '../search_operations/car_search'
 require_relative 'authorization_menu'
 require_relative '../search_operations/user_search_history/save_user_search_history'
 require 'i18n'
@@ -55,7 +55,7 @@ class StartMenu
   def search_car
     search_request = CarRequest.new
     search_request.print_menu
-    search_result = SearchClass.new
+    search_result = CarSearch.new
     search_result.search_by_request(search_request)
     search_result.print_result
     save_request(search_result.request.id) if @authorization.user.status
@@ -69,7 +69,7 @@ class StartMenu
   def all_cars
     search_request = CarRequest.new
     search_request.choose_sort
-    search_result = SearchClass.new
+    search_result = CarSearch.new
     search_result.search_by_request(search_request)
     search_result.print_result
   end
