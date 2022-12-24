@@ -20,18 +20,16 @@ class SaveUserSearchHistory
     @search_request_id = search_request_id
     user_history_list = ReadUserSearchHistory.new(@user_email)
     @history_list = user_history_list.read_history_from_db
-    users_history_exist? ? update_users_history : add_new_users_history
+    users_email_exist? ? update_users_history : add_new_users_history
     update_content(USER_HISTORY_DB, history_list)
   end
 
-  def users_history_exist?
+  def users_email_exist?
     !@history_list.nil? && !@history_list.find { |history| history[:user_email] == @user_email }.nil?
   end
 
   def add_new_users_history
-    @history_list = [] if @history_list.nil?
-    @search_request.requests_quantity = 1
-    @history_list << { user_email: @user_email, history: [@search_request_id] }
+    @history_list = [{ user_email: @user_email, history: [@search_request_id] }]
   end
 
   def update_users_history

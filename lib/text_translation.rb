@@ -14,6 +14,6 @@ module TextTranslation
 
   def change_language
     language = gets.chomp
-    I18n.locale = I18n.available_locales.to_s.include?(language) ? language.to_sym : I18n.default_locale
+    I18n.locale = I18n.available_locales.include?(language.to_sym) ? language : I18n.default_locale
   end
 end

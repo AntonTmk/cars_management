@@ -23,11 +23,12 @@ class ReadUserSearchHistory
   end
 
   def users_history_id_list
-    read_history_from_db.select { |user| user[:user_email] == @user_email }[0][:history]
+    users_history = read_history_from_db.select { |user| user[:user_email] == @user_email }[0]
+    users_history.nil? ? nil : users_history[:history]
   end
 
   def print_history_table
-    if !read_history_from_db.nil?
+    if !read_history_from_db.nil? && !users_history_id_list.nil?
       print_table(read_history_by_id(users_history_id_list), @user_email)
     else
       puts I18n.t('no_history')
