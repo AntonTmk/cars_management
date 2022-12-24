@@ -1,23 +1,25 @@
 # frozen_string_literal: true
 
-require_relative 'base_table'
+require_relative '../../../config/requirements'
 
 # module for creating tables from SearchResult
-module CarsTable
-  def print_table(content, request)
-    table = BaseTable.new(table_title(request))
-    table.add_headings(table_heading)
-    table.add_content(content)
-    table.table_print
-  end
+module Views
+  module Table
+    class CarsTable < BaseTable
 
-  def table_title(request)
-    "#{I18n.t('task_title')} \n
-    #{I18n.t(:total_quantity)}: #{request.total_quantity}
-    #{I18n.t(:requests_quantity)}:  #{request.requests_quantity}"
-  end
+      def title
+        "   #{I18n.t('task_title')}
+         #{I18n.t('total_quantity')}: #{@content[:total_quantity]}
+         #{I18n.t('requests_quantity')}: #{@content[:requests_quantity]} ".colorize(:light_blue)
+      end
 
-  def table_heading
-    %w[id make model year odometer price description date_added].map { |value| I18n.t(value) }
+      def headings
+        %w[id make model year odometer price description date_added].map { |value| I18n.t(value).colorize(:blue) }
+      end
+
+      def rows
+        @content[:content].map { |car| car.values.map{ |param| param.to_s.colorize(:magenta) } }
+      end
+    end
   end
 end

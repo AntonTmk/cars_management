@@ -1,15 +1,12 @@
 # frozen_string_literal: true
 
-require_relative '../../file_process'
-require_relative '../../view/table/user_history_table'
-require 'i18n'
+require './config/requirements'
 
 # class for read users search history
 class ReadUserSearchHistory
   attr_accessor :user_email
 
   include FileProcess
-  include UserHistoryTable
 
   USER_HISTORY_DB = 'data/user_history.yml'
   HISTORY_DB = 'data/searches.yml'
@@ -29,7 +26,9 @@ class ReadUserSearchHistory
 
   def print_history_table
     if !read_history_from_db.nil? && !users_history_id_list.nil?
-      print_table(read_history_by_id(users_history_id_list), @user_email)
+      Views::Render.instance.render_table(table: Views::Table::UserHistoryTable,
+                                          data: { email: @user_email, content: read_history_by_id(users_history_id_list)})
+      # print_table(read_history_by_id(users_history_id_list), @user_email)
     else
       puts I18n.t('no_history')
     end

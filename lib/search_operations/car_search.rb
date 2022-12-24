@@ -1,14 +1,9 @@
 # frozen_string_literal: true
 
-require 'date'
-require_relative '../search_request/car_request'
-require_relative 'search_history'
-require_relative '../view/table/cars_table'
-require_relative '../file_process'
+require './config/requirements'
 
 # class to get the result of a search request
 class CarSearch
-  include CarsTable
   include SearchHistory
   include FileProcess
   attr_accessor :request, :result
@@ -27,9 +22,12 @@ class CarSearch
     car_list.find_all { |car| @request.include?(car) }
   end
 
+  include Views
+
   def print_result
     sort_result
-    print_table(@result, @request)
+    Views::Render.instance.render_table(table: Views::Table::CarsTable,
+                            data: { requests_quantity: @request.requests_quantity, total_quantity: @request.total_quantity, content: @result})
   end
 
   private

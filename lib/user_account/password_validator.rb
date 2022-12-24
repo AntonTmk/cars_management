@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'i18n'
-
 # check if password valid
 class PasswordValidator
   attr_accessor :password, :errors

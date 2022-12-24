@@ -1,11 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../search_request/car_request'
-require_relative '../search_operations/car_search'
-require_relative 'authorization_menu'
-require_relative '../search_operations/user_search_history/save_user_search_history'
-require 'i18n'
-require 'colorize'
+require './config/requirements'
 
 # class for navigating the application
 class StartMenu

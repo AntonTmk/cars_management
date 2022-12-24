@@ -72,3 +72,5 @@ en:
   input_password_please: "Input password please:"
   Log_In_fail: Log In fail
   no_history: Your history is empty now
+
+  not_implemented: "not implemented"

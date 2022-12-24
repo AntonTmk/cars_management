@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../search_request/car_request'
-require_relative '../search_operations/user_search_history/read_user_search_history'
-require 'i18n'
-require 'colorize'
+require './config/requirements'
 
 # class for navigating the application
 module UsersHistoryMenu

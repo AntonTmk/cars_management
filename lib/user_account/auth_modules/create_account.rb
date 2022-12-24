@@ -1,14 +1,12 @@
 # frozen_string_literal: true
 
-require_relative '../password_validator'
-require_relative '../../file_process'
-require 'colorize'
-require 'i18n'
+require './config/requirements'
 
 # register data validator
 module CreateAccount
-  include FileProcess
   attr_accessor :errors
+
+  include FileProcess
 
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   DB_USERS = 'data/users.yml'

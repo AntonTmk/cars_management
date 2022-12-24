@@ -1,14 +1,10 @@
 # frozen_string_literal: true
 
-require_relative '../user_account/user_data'
-require_relative '../user_account/user_auth'
-require_relative 'user_history_menu'
+require './config/requirements'
 
 # module for navigating the application
 class AuthorizationMenu
   attr_accessor :user
-
-  include UserAuth
   include UsersHistoryMenu
 
   def initialize
@@ -47,7 +43,7 @@ class AuthorizationMenu
     puts I18n.t('input_password_please')
     password = gets.chomp
     @user = UserData.new(email, password)
-    @user = UserAuth.log_in(@user)
+    @user = UserAuth::log_in(@user)
   end
 
   def sing_up_menu
@@ -57,6 +53,6 @@ class AuthorizationMenu
     puts I18n.t('input_password_please')
     password = gets.chomp
     @user = UserData.new(email, password)
-    @user.status = UserAuth.sing_up?(@user)
+    @user.status = UserAuth::sing_up?(@user)
   end
 end

@@ -2,28 +2,41 @@
 
 require 'terminal-table'
 
-# class to create table
-class BaseTable
-  attr_accessor :table_title, :table_headings, :table_content
+module Views
+  module Table
+    class BaseTable
+      def initialize(content)
+        @content = content
+      end
 
-  def initialize(titles)
-    @table_title = titles
-  end
+      def call
+        Terminal::Table.new do |table|
+          table.title = title
+          table.headings = headings
+          table.rows = rows
+          table.style = style
+        end
+      end
 
-  def add_headings(headings)
-    @table_headings = headings.to_a
-  end
+      private
 
-  def add_content(content_array)
-    @table_content = []
-    content_array.each { |car| @table_content << car.values }
-  end
+      attr_reader :data
 
-  def table_print
-    table = Terminal::Table.new
-    table.title = @table_title.colorize(:light_cyan)
-    table.headings = @table_headings.map { |v| v.colorize(:blue) }
-    table.rows = @table_content.map { |v| v.map { |val| val.to_s.colorize(:magenta) } }
-    puts table
+      def title
+        raise NotImplementedError, I18n.t('not_implemented', class: self.class, method: __method__)
+      end
+
+      def headings
+        []
+      end
+
+      def rows
+        raise NotImplementedError, I18n.t('not_implemented', class: self.class, method: __method__)
+      end
+
+      def style
+        { all_separators: true }
+      end
+    end
   end
 end

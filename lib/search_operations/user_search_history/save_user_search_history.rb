@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../file_process'
-require_relative '../../search_request/car_request'
-require_relative 'read_user_search_history'
+require './config/requirements'
 
 # class for saving users search requests
 class SaveUserSearchHistory
