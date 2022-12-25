@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../password_validator'
-require_relative '../../file_process'
-
 # register data validator
 module CreateAccount
   include FileProcess

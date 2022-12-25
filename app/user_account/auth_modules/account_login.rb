@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require './config/requirements'
-require_relative '../../file_process'
-
 # module for checking login parameters
 module AccountLogin
   include BCrypt

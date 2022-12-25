@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require './config/requirements'
-
 # class for translating program content
 module TextTranslation
   def available_languages

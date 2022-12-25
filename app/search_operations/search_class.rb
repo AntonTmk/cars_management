@@ -1,14 +1,9 @@
 # frozen_string_literal: true
 
-require_relative 'search_history'
-require './config/requirements'
-require './app/view/table/cars_table'
-require './app/file_process'
-
 # class to get the result of a search request
 class SearchClass
-  include CarsTable
   include SearchHistory
+  include CarsTable
   include FileProcess
   attr_accessor :request, :result
 

@@ -5,7 +5,7 @@
   :year_to: 0
   :price_from: 0
   :price_to: 0
-  :requests_quantity: 39
+  :requests_quantity: 44
   :total_quantity: 14
 - :make: InfIniti
   :model: ''
@@ -21,7 +21,7 @@
   :year_to: 0
   :price_from: 0
   :price_to: 0
-  :requests_quantity: 5
+  :requests_quantity: 6
   :total_quantity: 1
 - :make: bmw
   :model: ''

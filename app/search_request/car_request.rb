@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'comparison_requests'
-
 # class for creating a search query
 class CarRequest
   include ComparisonRequests
