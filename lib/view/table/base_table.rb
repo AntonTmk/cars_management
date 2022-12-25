@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'terminal-table'
-
 # class to create table
 class BaseTable
   attr_accessor :table_title, :table_headings, :table_content

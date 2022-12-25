@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'i18n'
-require 'colorize'
-
 # class for translating program content
 module TextTranslation
   def available_languages

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# require_relative '../../config/requirements'
-
 # module for comparing search requests
 module ComparisonRequests
   def text_eql_or_nil?(request_hash, hash)

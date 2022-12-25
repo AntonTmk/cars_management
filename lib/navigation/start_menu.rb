@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../search_request/car_request'
-require_relative '../search_operations/search_class'
-require 'i18n'
-require 'colorize'
-
 # module for navigating the application
 module StartMenu
 
@@ -46,7 +41,7 @@ module StartMenu
   def search_car
     search_request = CarRequest.new
     search_request.print_menu
-    search_result = SearchClass.new
+    search_result = CarSearch.new
     search_result.search_by_request(search_request)
     search_result.print_result
   end
@@ -54,7 +49,7 @@ module StartMenu
   def all_cars
     search_request = CarRequest.new
     search_request.choose_sort
-    search_result = SearchClass.new
+    search_result = CarSearch.new
     search_result.search_by_request(search_request)
     search_result.print_result
   end

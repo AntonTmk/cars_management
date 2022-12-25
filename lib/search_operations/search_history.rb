@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../../config/requirements'
-require_relative '../file_process'
-
 # module for saving searches requests
 module SearchHistory
   include FileProcess

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'yaml'
-
 # module for working with files
 module FileProcess
   def update_content(file_name, content)
