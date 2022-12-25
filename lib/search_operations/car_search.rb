@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require './config/requirements'
-
 # class to get the result of a search request
 class CarSearch
   include SearchHistory

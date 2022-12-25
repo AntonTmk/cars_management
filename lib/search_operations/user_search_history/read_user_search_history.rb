@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require './config/requirements'
-
 # class for read users search history
 class ReadUserSearchHistory
   attr_accessor :user_email

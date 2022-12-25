@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require './config/requirements'
-
 # module for navigating the application
 class AuthorizationMenu
   attr_accessor :user

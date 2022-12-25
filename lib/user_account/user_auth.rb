@@ -1,6 +1,4 @@
-require_relative 'auth_modules/account_login'
-require_relative 'auth_modules/log_out'
-require_relative 'auth_modules/create_account'
+# frozen_string_literal: true
 
 module UserAuth
   extend AccountLogin

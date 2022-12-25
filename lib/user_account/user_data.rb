@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require './config/requirements'
-require './lib/file_process'
-
 # class for user_account
 class UserData
   include BCrypt

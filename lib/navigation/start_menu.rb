@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require './config/requirements'
-
 # class for navigating the application
 class StartMenu
   attr_accessor :autorization

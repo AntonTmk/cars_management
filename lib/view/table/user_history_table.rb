@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../../../config/requirements'
-
 # module for creating tables from Users history
 module Views
   module Table

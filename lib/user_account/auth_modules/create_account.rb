@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require './config/requirements'
-
 # register data validator
 module CreateAccount
   attr_accessor :errors

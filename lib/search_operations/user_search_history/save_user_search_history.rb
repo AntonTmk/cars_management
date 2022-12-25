@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require './config/requirements'
-
 # class for saving users search requests
 class SaveUserSearchHistory
   attr_accessor :user_email, :history_list, :search_request
