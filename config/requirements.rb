@@ -7,17 +7,13 @@ require 'colorize'
 require 'bcrypt'
 require 'terminal-table'
 require 'yaml'
+require 'date'
 
 # classes
 
 require_relative '../lib/navigation/start_menu'
-
-
-# modules
-
 require_relative '../lib/text_translation'
 
-# config
 
 require_relative '../config/initializers/i18n'
 
@@ -48,5 +44,3 @@ require './lib/search_operations/user_search_history/read_user_search_history'
 
 require './lib/navigation/user_history_menu'
 require './lib/navigation/authorization_menu'
-
-require 'date'
