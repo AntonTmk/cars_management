@@ -25,7 +25,7 @@ class ReadUserSearchHistory
   def print_history_table
     if !read_history_from_db.nil? && !users_history_id_list.nil?
       Views::Render.instance.render_table(table: Views::Table::UserHistoryTable,
-                                          data: { email: @user_email, content: read_history_by_id(users_history_id_list)})
+                                          data: { email: @user_email, content: read_history_by_id(users_history_id_list) } )
       # print_table(read_history_by_id(users_history_id_list), @user_email)
     else
       puts I18n.t('no_history')

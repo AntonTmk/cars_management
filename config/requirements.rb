@@ -10,6 +10,7 @@ require 'yaml'
 require 'date'
 
 # classes
+require './lib/file_process'
 
 require_relative '../lib/navigation/start_menu'
 require_relative '../lib/text_translation'
@@ -32,8 +33,6 @@ require './lib/user_account/auth_modules/log_out'
 require './lib/user_account/auth_modules/create_account'
 require './lib/user_account/user_auth'
 require './lib/user_account/password_validator'
-
-require './lib/file_process'
 
 require './lib/search_request/comparison_requests'
 require './lib/search_request/car_request'

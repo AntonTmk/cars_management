@@ -71,3 +71,5 @@ uk:
   input_email_please: "Введіть електронну адресу:"
   input_password_please: "Введіть пароль:"
   Log_In_fail: Помилка входу
+
+  not_implemented: "Помилка відображеня таблиці"

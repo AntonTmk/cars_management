@@ -16,7 +16,7 @@ module Views
       end
 
       def rows
-        @content[:content].map { |car| car.values.map{ |param| param.to_s.colorize(:magenta) } }
+        @content[:content].map { |car| car.values.map { |param| param.to_s.colorize(:magenta) } }
       end
     end
   end
