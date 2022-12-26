@@ -3,7 +3,7 @@ pre-commit:
   commands:
     fasterer:
       tags: backend
-      run fasterer
+      run: fasterer
     bundle leak:
       tags: backend
       run: bundle exec bundle leak check --update
