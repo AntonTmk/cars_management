@@ -29,7 +29,7 @@ en:
   Please_choose_price_from: "Please choose price_from:"
   Please_choose_price_to: "Please choose price_to:"
   Please_choose_sort_option: "Please choose sort option (date_added|price):"
-  Please_choose-sort_direction: "Please choose sort direction(desc|asc):"
+  Please_choose_sort_direction: "Please choose sort direction(desc|asc):"
 
   Welcome: Welcome to Car Management
   help_message: "You can use this program to search for cars from the cars.yml file with the parameters you want \n

@@ -37,9 +37,11 @@ class AuthorizationMenu
   def log_in_menu
     puts I18n.t('Login_to_account')
     puts I18n.t('input_email_please')
-    email = gets.chomp
+    # email = gets.chomp
     puts I18n.t('input_password_please')
-    password = gets.chomp
+    # password = gets.chomp
+    email = "artem@mail.ua"
+    password = "Artem_123"
     @user = UserData.new(email, password)
     @user = UserAuth::log_in(@user)
   end

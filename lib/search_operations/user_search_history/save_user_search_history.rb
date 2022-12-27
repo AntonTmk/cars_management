@@ -25,7 +25,7 @@ class SaveUserSearchHistory
   end
 
   def add_new_users_history
-    @history_list = [{ user_email: @user_email, history: [@search_request_id] }]
+    @history_list = [{ user_email: @user_email, history: [ { id: @search_request_id, requests_quantity: 1 } ] }]
   end
 
   def update_users_history
@@ -35,6 +35,11 @@ class SaveUserSearchHistory
   end
 
   def update_history_request(users_history)
-    users_history << @search_request_id unless users_history.include?(@search_request_id)
+    users_history.map { |request| request[:requests_quantity] += 1 if request[:id] == @search_request_id }
+    users_history << { id: @search_request_id, requests_quantity: 1 } unless history_id_array(users_history).include?(@search_request_id)
+  end
+
+  def history_id_array(requests)
+    requests.map { |request| request = request[:id] }
   end
 end

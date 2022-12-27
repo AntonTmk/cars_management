@@ -9,7 +9,7 @@ module FileProcess
 
   def add_content(file_name, new_content)
     content = read_content(file_name)
-    content.empty? ? content = [new_content] : content << new_content
+    content.nil? ? content = [new_content] : content << new_content
     File.write(file_name, content.to_yaml)
   end
 

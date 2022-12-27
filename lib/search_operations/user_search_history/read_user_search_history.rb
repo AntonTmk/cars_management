@@ -17,22 +17,35 @@ class ReadUserSearchHistory
     read_content(USER_HISTORY_DB)
   end
 
-  def users_history_id_list
+  def users_history_list
     users_history = read_history_from_db.select { |user| user[:user_email] == @user_email }[0]
     users_history.nil? ? nil : users_history[:history]
   end
 
   def print_history_table
-    if !read_history_from_db.nil? && !users_history_id_list.nil?
+    if !read_history_from_db.nil? && !users_history_list.nil?
       Views::Render.instance.render_table(table: Views::Table::UserHistoryTable,
-                                          data: { email: @user_email, content: read_history_by_id(users_history_id_list) } )
-      # print_table(read_history_by_id(users_history_id_list), @user_email)
+                                          data: { email: @user_email, content: read_users_history })
     else
       puts I18n.t('no_history')
     end
   end
 
-  def read_history_by_id(id_list)
-    read_content(HISTORY_DB).select { |request| id_list.include?(request[:id]) }
+  def read_users_history
+    users_history_list = users_history_requests_list
+    users_history_list.map { |request| request[:requests_quantity] = get_requests_quantity_by_id(users_history_list, request[:id]) }
+    users_history_list
+  end
+
+  def users_history_requests_list
+    read_content(HISTORY_DB).select { |request| requests_id_list(users_history_list).include?(request[:id]) }
+  end
+
+  def requests_id_list(requests_list)
+    requests_list.map { |request| request = request[:id] }
+  end
+
+  def get_requests_quantity_by_id(requests_list, id)
+    requests_list.select { |request| request[:id] == id }[0][:requests_quantity]
   end
 end

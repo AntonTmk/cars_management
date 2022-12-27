@@ -6,7 +6,7 @@
   :year_to: 0
   :price_from: 0
   :price_to: 0
-  :requests_quantity: 53
+  :requests_quantity: 55
   :total_quantity: 14
 - :id: 1
   :make: bmw
@@ -15,7 +15,7 @@
   :year_to: 0
   :price_from: 0
   :price_to: 0
-  :requests_quantity: 6
+  :requests_quantity: 20
   :total_quantity: 2
 - :id: 2
   :make: Infiniti
@@ -24,7 +24,7 @@
   :year_to: 0
   :price_from: 0
   :price_to: 0
-  :requests_quantity: 6
+  :requests_quantity: 7
   :total_quantity: 1
 - :id: 3
   :make: peugeot
@@ -33,5 +33,14 @@
   :year_to: 0
   :price_from: 0
   :price_to: 0
-  :requests_quantity: 14
+  :requests_quantity: 16
   :total_quantity: 1
+- :id: 4
+  :make: ford
+  :model: ''
+  :year_from: 0
+  :year_to: 0
+  :price_from: 0
+  :price_to: 0
+  :requests_quantity: 1
+  :total_quantity: 2
