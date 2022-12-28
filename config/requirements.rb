@@ -20,7 +20,6 @@ require_relative '../config/initializers/i18n'
 
 # tables
 
-require './lib/view/render'
 require './lib/view/table/base_table'
 require './lib/view/table/cars_table'
 require './lib/view/table/user_history_table'

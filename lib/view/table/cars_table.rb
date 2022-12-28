@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-# module for creating tables from SearchResult
 module Views
   module Table
+    # class for creating tables from SearchResult
     class CarsTable < BaseTable
 
       def title

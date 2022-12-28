@@ -24,11 +24,14 @@ class CarSearch
 
   def print_result
     sort_result
-    Views::Render.instance.render_table(table: Views::Table::CarsTable,
-                            data: { requests_quantity: @request.requests_quantity, total_quantity: @request.total_quantity, content: @result})
+    puts Views::Table::CarsTable.new(result_hash).call
   end
 
   private
+
+  def result_hash
+    { requests_quantity: @request.requests_quantity, total_quantity: @request.total_quantity, content: @result }
+  end
 
   def sort_result
     @result = sort_type?('price') ? sort_by_price : sort_by_date
