@@ -20,6 +20,6 @@ class CarsTable < BaseTable
   end
 
   def rows
-    @content.map { |car| car = car.valuesa}
+    @content.map { |car| car = car.values }
   end
 end
