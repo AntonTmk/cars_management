@@ -2,26 +2,30 @@
 
 # class to create table
 class BaseTable
-  attr_accessor :table_title, :table_headings, :table_content
+  attr_accessor :content
 
-  def initialize(titles)
-    @table_title = titles
+  def initialize(content)
+    @content = content
   end
 
-  def add_headings(headings)
-    @table_headings = headings.to_a
-  end
-
-  def add_content(content_array)
-    @table_content = []
-    content_array.each { |car| @table_content << car.values }
-  end
-
-  def table_print
+  def call
     table = Terminal::Table.new
-    table.title = @table_title.colorize(:light_cyan)
-    table.headings = @table_headings.map { |v| v.colorize(:blue) }
-    table.rows = @table_content.map { |v| v.map { |val| val.to_s.colorize(:magenta) } }
+    table.title = title.colorize(:light_cyan)
+    table.headings = headings.map { |v| v.colorize(:blue) }
+    table.rows = rows.map { |v| v.map { |val| val.to_s.colorize(:magenta) } }
     puts table
+  end
+
+
+  def title
+    raise NotImplementedError, I18n.t('table_output_error')
+  end
+
+  def headings
+    []
+  end
+
+  def rows
+    raise NotImplementedError, I18n.t('table_output_error')
   end
 end

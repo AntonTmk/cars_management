@@ -44,3 +44,5 @@ uk:
   Exit: "Вихід"
 
   goodbye: "Вихід  "
+
+  table_output_error: "Помилка відображення таблиці"

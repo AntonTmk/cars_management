@@ -2,7 +2,6 @@
 
 # class to get the result of a search request
 class CarSearch
-  include CarsTable
   include SearchHistory
   include FileProcess
   attr_accessor :request, :result
@@ -23,7 +22,7 @@ class CarSearch
 
   def print_result
     sort_result
-    print_table(@result, @request)
+    CarsTable.new(@result, @request).call
   end
 
   private
