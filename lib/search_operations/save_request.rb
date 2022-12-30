@@ -41,11 +41,11 @@ module SaveRequest
     end
   end
 
-  def result_include_req?
+  def result_include_request?
     @result.select { |req| compare_req?(req, @request) }.length.positive?
   end
 
-  def compare_req?(req1, req2)
+  def compare_request?(req1, req2)
     req1.to_s.casecmp(req2.car_hash(req1[:requests_quantity], req1[:total_quantity]).to_s).zero?
   end
 end

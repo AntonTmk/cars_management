@@ -24,7 +24,7 @@ module SearchHistory
   end
 
   def edit_history
-    history_include_req?(@history) ? update_request(@history) : add_request(@history)
+    history_includes_request?(@history) ? update_request(@history) : add_request(@history)
   end
 
   def add_request(list)
