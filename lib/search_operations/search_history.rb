@@ -34,11 +34,11 @@ module SearchHistory
   end
 
   def update_request(list)
-    list.each_with_index do |list_index|
-      next unless compare_requests?(list[list_index])
+    list.each_with_index do |car, car_index|
+      next unless compare_requests?(car)
 
-      increase_record(list[list_index], @request.total_quantity)
-      @request.id = list_index
+      increase_record(car, @request.total_quantity)
+      @request.id = car_index
     end
   end
 
