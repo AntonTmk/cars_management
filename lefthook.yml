@@ -1,9 +1,9 @@
-pre-commit:
+git pull origin mainpre-commit:
   parallel: true
   commands:
     fasterer:
       tags: backend
-      run fasterer
+      run: fasterer
     bundle leak:
       tags: backend
       run: bundle exec bundle leak check --update
