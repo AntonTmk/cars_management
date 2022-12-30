@@ -15,3 +15,7 @@ gem 'bundler-audit', '~> 0.9.1'
 gem 'bundler-leak', '~> 0.3.0'
 
 gem 'lefthook', '~> 1.2', '>= 1.2.4'
+
+gem 'rake', '~> 11.2', '>= 11.2.2'
+
+gem 'faker', '~> 3.1'
