@@ -9,8 +9,16 @@ module TextTranslation
 
   private
 
+  def include_language?(language)
+    !language_from_list(language).nil? && !language_from_list(language).empty?
+  end
+
+  def language_from_list(language)
+    I18n.available_locales.select { |lang| language.match?(lang.to_s) }[0]
+  end
+
   def change_language
     language = gets.chomp
-    I18n.locale = I18n.available_locales.to_s.include?(language) ? language.to_sym : I18n.default_locale
+    I18n.locale = include_language?(language) ? language_from_list(language) : I18n.default_locale
   end
 end
