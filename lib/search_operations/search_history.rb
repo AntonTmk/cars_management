@@ -23,7 +23,7 @@ module SearchHistory
   end
 
   def edit_history
-    history_include_req?(@history) ? update_request(@history) : add_request(@history)
+    history_includes_request?(@history) ? update_request(@history) : add_request(@history)
   end
 
   def add_request(list)
@@ -32,10 +32,10 @@ module SearchHistory
   end
 
   def update_request(list)
-    (0..list.length - 1).each do |v|
-      next unless compare_req?(list[v])
+    list.each do |car|
+      next unless compare_requests?(car)
 
-      increase_record(list[v], @request.total_quantity)
+      increase_record(car, @request.total_quantity)
     end
   end
 
@@ -45,11 +45,11 @@ module SearchHistory
     @request.requests_quantity = record[:requests_quantity].to_i
   end
 
-  def history_include_req?(searches)
-    searches.select { |req| compare_req?(req) }.length.positive?
+  def history_includes_request?(searches)
+    searches.select { |req| compare_requests?(req) }.length.positive?
   end
 
-  def compare_req?(car)
+  def compare_requests?(car)
     @request.car_eql?(car)
   end
 end
