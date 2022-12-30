@@ -34,11 +34,11 @@ module SearchHistory
   end
 
   def update_request(list)
-    (0..list.length - 1).each do |v|
-      next unless compare_req?(list[v])
+    list.each_with_index do |list_index|
+      next unless compare_requests?(list[list_index])
 
-      increase_record(list[v], @request.total_quantity)
-      @request.id = v
+      increase_record(list[list_index], @request.total_quantity)
+      @request.id = list_index
     end
   end
 
@@ -48,11 +48,11 @@ module SearchHistory
     @request.requests_quantity = record[:requests_quantity].to_i
   end
 
-  def history_include_req?(searches)
-    searches.select { |req| compare_req?(req) }.length.positive?
+  def history_includes_request?(searches)
+    searches.select { |request| compare_requests?(request) }.length.positive?
   end
 
-  def compare_req?(car)
+  def compare_requests?(car)
     @request.car_eql?(car)
   end
 end

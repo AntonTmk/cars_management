@@ -10,6 +10,8 @@ require 'yaml'
 require 'date'
 
 # classes
+
+require './lib/navigation/base_menu'
 require './lib/file_process'
 
 require_relative '../lib/navigation/start_menu'

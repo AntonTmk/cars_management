@@ -25,7 +25,7 @@ class SaveUserSearchHistory
   end
 
   def add_new_users_history
-    @history_list = [{ user_email: @user_email, history: [ { id: @search_request_id, requests_quantity: 1 } ] }]
+    @history_list = [{ user_email: @user_email, history: [{ id: @search_request_id, requests_quantity: 1 }] }]
   end
 
   def update_users_history

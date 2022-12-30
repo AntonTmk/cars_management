@@ -1,13 +1,9 @@
 # frozen_string_literal: true
 
 # class for navigating the application
-module UsersHistoryMenu
-  def print_history_menu
+class UsersHistoryMenu < BaseMenu
+  def call
     print_item(6, 'my_history')
-  end
-
-  def print_item(num, i18n_key)
-    puts "#{num}. #{I18n.t(i18n_key)}".colorize(:light_blue)
   end
 
   def users_history(email)

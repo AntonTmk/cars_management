@@ -2,9 +2,9 @@
 - :user_email: artem@mail.ua
   :history:
   - :id: 3
-    :requests_quantity: 1
-  - :id: 1
     :requests_quantity: 2
+  - :id: 1
+    :requests_quantity: 3
   - :id:
     :requests_quantity: 1
   - :id: 2

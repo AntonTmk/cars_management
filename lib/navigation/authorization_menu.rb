@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
-# module for navigating the application
-class AuthorizationMenu
+# class for navigating the application
+class AuthorizationMenu < BaseMenu
   attr_accessor :user
-  include UsersHistoryMenu
 
   def initialize
     @user = UserData.new('email', 'password')
@@ -15,12 +14,8 @@ class AuthorizationMenu
       print_item(6, 'Sing_Up')
     else
       print_item(5, 'Log_Out')
-      print_history_menu
+      UsersHistoryMenu.new.call
     end
-  end
-
-  def print_item(num, i18n_text)
-    puts "#{num}. #{I18n.t(i18n_text)}".colorize(:light_blue)
   end
 
   def select_event(event)
@@ -28,7 +23,7 @@ class AuthorizationMenu
     when ['5', true] then @user = UserAuth.log_out(@user)
     when ['5', false] then log_in_menu
     when ['6', false] then sing_up_menu
-    when ['6', true] then users_history(@user.email)
+    when ['6', true] then UsersHistoryMenu.new.users_history(@user.email)
     else
       puts I18n.t('invalid_request').colorize(:black).on_red
     end

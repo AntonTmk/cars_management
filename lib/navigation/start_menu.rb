@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # class for navigating the application
-class StartMenu
+class StartMenu < BaseMenu
   attr_accessor :autorization
 
   def initialize
@@ -15,10 +15,6 @@ class StartMenu
     print_item(4, 'Exit')
     @authorization.menu_login
     choose_menu
-  end
-
-  def print_item(num, i18n_key)
-    puts "#{num}. #{I18n.t(i18n_key)}".colorize(:light_blue)
   end
 
   def choose_menu
