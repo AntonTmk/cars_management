@@ -1,3 +1,4 @@
+---
 - id: 1ec46226-330f-11ec-8d3d-0242ac130003
   make: Ford
   model: Fusion
@@ -68,7 +69,7 @@
   year: 2003
   odometer: 245000
   price: 10500
-  description: 'Car in very good condition, LPG installed'
+  description: Car in very good condition, LPG installed
   date_added: 28/09/21
 - id: 8841f970-330f-11ec-8d3d-0242ac130003
   make: Renault
@@ -76,7 +77,7 @@
   year: 2018
   odometer: 245000
   price: 10500
-  description: 'Car in very good condition, LPG installed'
+  description: Car in very good condition, LPG installed
   date_added: 28/09/21
 - id: 8f724eb6-330f-11ec-8d3d-0242ac130003
   make: Volkswagen
@@ -92,7 +93,7 @@
   year: 2014
   odometer: 130000
   price: 29900
-  description: 'The car is in perfect condition, fully serviced'
+  description: The car is in perfect condition, fully serviced
   date_added: 8/10/21
 - id: 9e6da960-330f-11ec-8d3d-0242ac130003
   make: Volkswagen
@@ -110,3 +111,99 @@
   price: 10650
   description: Official car
   date_added: 1/10/21
+- id: 64343921146-330f-11ec-8d3d-0242ac130003
+  make: Buick
+  model: LaCrosse
+  year: 2022
+  odometer: 28583
+  price: 32642.0
+  description: Odit dolorem delectus eaque.
+  date: 2011/02/18
+- id: 19426780388-330f-11ec-8d3d-0242ac130003
+  make: Ford
+  model: Fiesta
+  year: 2022
+  odometer: 20247
+  price: 86106.0
+  description: Earum ut cum repellendus.
+  date: 2013/03/06
+- id: 53051733638-330f-11ec-8d3d-0242ac130003
+  make: Ford
+  model: F150
+  year: 2021
+  odometer: 33343
+  price: 21640.0
+  description: Est expedita neque dolor.
+  date: 2005/12/11
+- id: 99626407103-330f-11ec-8d3d-0242ac130003
+  make: BMW
+  model: M5
+  year: 2013
+  odometer: 84345
+  price: 82680.0
+  description: Iste soluta culpa cupiditate.
+  date: 2015/07/30
+- id: 20144012795-330f-11ec-8d3d-0242ac130003
+  make: Buick
+  model: Regal
+  year: 2022
+  odometer: 50169
+  price: 22105.0
+  description: Similique cum dolorem asperiores.
+  date: 2014/08/29
+- id: 83015025643-330f-11ec-8d3d-0242ac130003
+  make: Toyota
+  model: Camry
+  year: 2021
+  odometer: 11593
+  price: 27968.0
+  description: Porro voluptatum enim repellat.
+  date: 2020/02/20
+- id: 51026980288-330f-11ec-8d3d-0242ac130003
+  make: Toyota
+  model: Corolla
+  year: 2021
+  odometer: 45408
+  price: 65786.0
+  description: Omnis eveniet similique commodi.
+  date: 2016/07/20
+- id: 30641569277-330f-11ec-8d3d-0242ac130003
+  make: Ford
+  model: F150
+  year: 2019
+  odometer: 84481
+  price: 76333.0
+  description: Fuga numquam repellat facere.
+  date: 2022/07/16
+- id: 74160549045-330f-11ec-8d3d-0242ac130003
+  make: Ford
+  model: Fiesta
+  year: 2022
+  odometer: 45225
+  price: 43217.0
+  description: Ipsum sed in id.
+  date: 2010/07/05
+- id: 12368020154-330f-11ec-8d3d-0242ac130003
+  make: Chevy
+  model: Silverado
+  year: 2018
+  odometer: 58450
+  price: 41928.0
+  description: Magnam nostrum animi maiores.
+  date: 2004/07/19
+- id: 69713583361-330f-11ec-8d3d-0242ac130003
+  make: Dodge
+  model: Challenger
+  year: 2017
+  odometer: 59229
+  price: 33467.0
+  description: Occaecati molestiae repellat deserunt.
+  date: 2010/06/12
+- id: 86228865969-330f-11ec-8d3d-0242ac130003
+  make: Buick
+  model: Verano
+  year: 2022
+  odometer: 76002
+  price: 81180.0
+  description: Magni velit alias maiores.
+  date: 2016/05/18
