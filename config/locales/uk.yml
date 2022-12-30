@@ -12,13 +12,37 @@ uk:
   description: "Опис"
   date_added: "Дата додавання"
 
-  Please select search rules: "Виберіть правила пошуку"
+  Please_select_search_rules: "Виберіть правила пошуку"
 
-  Please choose make: "Оберіть виробника: "
-  Please choose model: "Виберіть модель:"
-  Please choose year_from: "Виберіть рік із:"
-  Please choose year_to: "Виберіть рік до:"
-  Please choose price_from: "Введіть початкову ціну:"
-  Please choose price_to: "Виберіть максимальну ціну:"
-  Please choose sort option: "Виберіть тип сортування (date_added|price):"
-  Please choose sort direction: "Виберіть напрямок сортування(desc|asc):"
+  Please_choose_make: "Оберіть виробника: "
+  Please_choose_model: "Виберіть модель:"
+  Please_choose_year_from: "Виберіть рік із:"
+  Please_choose_year_to: "Виберіть рік до:"
+  Please_choose_price_from: "Введіть початкову ціну:"
+  Please_choose_price_to: "Виберіть максимальну ціну:"
+  Please_choose_sort_option: "Виберіть тип сортування (date_added|price):"
+  Please_choose_sort_direction: "Виберіть напрямок сортування(desc|asc):"
+
+  press_ENTER_button_to_return_menu: "Натисніть кнопку ENTER, щоб повернутися до меню"
+  help_message: "Ви можете використовувати цю програму для пошуку автомобілів у файлі cars.yml із потрібними параметрами \n
+  Доступні фільтри: \n
+  * Виробник\n
+  * модель \n
+  * рік з \n
+  * рік до \n
+  * ціна від \n
+  * ціна до \n
+  Також ви можете вибрати варіант сортування \n"
+
+  Enter_the_menu_item_number: "Введіть номер пункту меню"
+  invalid_request: "Невірний запит \n Дозволені запити: 1, 2, 3 або 4 \n Спробуйте ще раз"
+
+  Welcome: "Ласкаво просимо до Car Management"
+  Search_a_car: "Пошук автомобіля"
+  Show_all_cars: "Показати всі машини"
+  Help: "Довідка"
+  Exit: "Вихід"
+
+  goodbye: "Вихід  "
+
+  table_output_error: "Помилка відображення таблиці"

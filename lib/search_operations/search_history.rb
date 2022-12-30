@@ -1,19 +1,18 @@
 # frozen_string_literal: true
 
-require_relative '../../config/requirements'
-
 # module for saving searches requests
 module SearchHistory
+  include FileProcess
   attr_accessor :request, :history
 
   DEFAULT_REQUESTS_QUANTITY = 1
-  HISTORY_FILE_NAME = 'searches.yml'.freeze
+  HISTORY_FILE_NAME = 'searches.yml'
 
-  def record_request(request)
-    @request = request
-    @history = FileProcess.read_content(HISTORY_FILE_NAME)
-    !@history ? initialize_file : edit_history
-    FileProcess.update_content(HISTORY_FILE_NAME, @history)
+  def record_request(car_request_obj)
+    @request = car_request_obj
+    @history = read_content(HISTORY_FILE_NAME)
+    @history ? edit_history : initialize_file
+    update_content(HISTORY_FILE_NAME, @history)
   end
 
   private
@@ -24,11 +23,7 @@ module SearchHistory
   end
 
   def edit_history
-    if history_include_req?(@history)
-      update_request(@history)
-    else
-      add_request(@history)
-    end
+    history_includes_request?(@history) ? update_request(@history) : add_request(@history)
   end
 
   def add_request(list)
@@ -37,10 +32,10 @@ module SearchHistory
   end
 
   def update_request(list)
-    (0..list.length - 1).each do |v|
-      next unless compare_req?(list[v])
+    list.each do |car|
+      next unless compare_requests?(car)
 
-      increase_record(list[v], @request.total_quantity)
+      increase_record(car, @request.total_quantity)
     end
   end
 
@@ -50,11 +45,11 @@ module SearchHistory
     @request.requests_quantity = record[:requests_quantity].to_i
   end
 
-  def history_include_req?(searches)
-    searches.select { |req| compare_req?(req) }.length.positive?
+  def history_includes_request?(searches)
+    searches.select { |req| compare_requests?(req) }.length.positive?
   end
 
-  def compare_req?(car)
+  def compare_requests?(car)
     @request.car_eql?(car)
   end
 end

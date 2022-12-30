@@ -12,13 +12,37 @@ en:
   description: "description"
   date_added: "date added"
 
-  Please select search rules: "Please select search rules"
+  Please_select_search_rules: "Please select search rules"
 
-  Please choose make: "Please choose make:"
-  Please choose model: "Please choose model:"
-  Please choose year_from: "Please choose year_from:"
-  Please choose year_to: "Please choose year_to:"
-  Please choose price_from: "Please choose price_from:"
-  Please choose price_to: "Please choose price_to:"
-  Please choose sort option: "Please choose sort option (date_added|price):"
-  Please choose sort direction: "Please choose sort direction(desc|asc):"
+  Please_choose_make: "Please choose make:"
+  Please_choose_model: "Please choose model:"
+  Please_choose_year_from: "Please choose year_from:"
+  Please_choose_year_to: "Please choose year_to:"
+  Please_choose_price_from: "Please choose price_from:"
+  Please_choose_price_to: "Please choose price_to:"
+  Please_choose_sort_option: "Please choose sort option (date_added|price):"
+  Please_choose_sort_direction: "Please choose sort direction(desc|asc):"
+
+  Welcome: "Welcome to Car Management"
+  help_message: "You can use this program to search for cars from the cars.yml file with the parameters you want \n
+  Available filters: \n
+  * make \n
+  * model \n
+  * year_from \n
+  * year_to \n
+  * price_from \n 
+  * price_to \n
+  Also you can choose sort option \n"
+
+  invalid_request: "invalid request \n Type only: 1, 2, 3 or 4 \n Try again"
+
+  press_ENTER_button_to_return_menu: "press ENTER button to return menu"
+  Search_a_car: "Search a car"
+  Show_all_cars: "Show all cars"
+  Help: "Help"
+  Exit: "Exit"
+  Enter_the_menu_item_number: "Enter the menu item number"
+
+  goodbye: "Goodbye!"
+
+  table_output_error: "Table output error"

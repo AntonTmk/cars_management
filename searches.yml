@@ -5,29 +5,29 @@
   :year_to: 0
   :price_from: 0
   :price_to: 0
-  :requests_quantity: 52
+  :requests_quantity: 45
   :total_quantity: 14
+- :make: InfIniti
+  :model: ''
+  :year_from: 0
+  :year_to: 0
+  :price_from: 0
+  :price_to: 0
+  :requests_quantity: 5
+  :total_quantity: 1
+- :make: PeugEot
+  :model: ''
+  :year_from: 0
+  :year_to: 0
+  :price_from: 0
+  :price_to: 0
+  :requests_quantity: 6
+  :total_quantity: 1
 - :make: bmw
   :model: ''
   :year_from: 0
   :year_to: 0
   :price_from: 0
   :price_to: 0
-  :requests_quantity: 22
+  :requests_quantity: 2
   :total_quantity: 2
-- :make: infiniti
-  :model: ''
-  :year_from: 0
-  :year_to: 0
-  :price_from: 0
-  :price_to: 0
-  :requests_quantity: 22
-  :total_quantity: 1
-- :make: bmw
-  :model: ''
-  :year_from: 0
-  :year_to: 0
-  :price_from: 0
-  :price_to: 0
-  :requests_quantity: 4
-  :total_quantity: 1

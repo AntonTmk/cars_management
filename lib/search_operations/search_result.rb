@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../../config/requirements'
-
 # class to get the result of a search request
 class SearchResult
   attr_accessor :request, :result

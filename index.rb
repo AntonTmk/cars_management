@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 require_relative 'config/requirements'
+include StartMenu
+include TextTranslation
 
-TranslateText.available_languages
-search_request = CarRequest.new
-search_result = SearchResult.new(search_request)
-search_result.print_result
+TextTranslation.available_languages
+puts I18n.t('Welcome').colorize(:black).on_blue
+StartMenu.call
