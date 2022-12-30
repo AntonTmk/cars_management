@@ -21,7 +21,7 @@ en:
   Please_choose_price_from: "Please choose price_from:"
   Please_choose_price_to: "Please choose price_to:"
   Please_choose_sort_option: "Please choose sort option (date_added|price):"
-  Please_choose_sort_direction: "Please choose sort direction(desc|asc):"
+  Please_choose-sort_direction: "Please choose sort direction(desc|asc):"
 
   Welcome: "Welcome to Car Management"
   help_message: "You can use this program to search for cars from the cars.yml file with the parameters you want \n
@@ -39,10 +39,27 @@ en:
   press_ENTER_button_to_return_menu: "press ENTER button to return menu"
   Search_a_car: "Search a car"
   Show_all_cars: "Show all cars"
+  Log_In: "Log In"
+  Sing_Up: "Sing Up"
+  Log_Out: "Log Out"
   Help: "Help"
   Exit: "Exit"
   Enter_the_menu_item_number: "Enter the menu item number"
 
   goodbye: "Goodbye!"
+  hello: "Hello"
 
-  table_output_error: "Table output error"
+  used_email_error: "This mail is already in use"
+  invalid_email: "Invalid email \n Email format must be: example@domen.***"
+
+  password_upcase_error: "Password must contain at least one uppercase letter"
+  password_lowercase_error: "Password must contain at least one lowercase letter"
+  password_special_character_error: "Password must contain at least two special character \n
+    List of special characters: ? < > ' , ? [ ] } { = - ) ( * & ^ % $ # ` ~ { } ! _ @"
+  password_number_error: "The password must contain at least one number"
+  password_long_error: "The password must be at 8 - 20 characters long"
+
+  Login_to_account: "Login to account"
+  input_email_please: "Input email please:"
+  input_password_please: "Input password please:"
+  Log_In_fail: "Log In fail"

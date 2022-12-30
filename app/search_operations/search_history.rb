@@ -6,7 +6,7 @@ module SearchHistory
   attr_accessor :request, :history
 
   DEFAULT_REQUESTS_QUANTITY = 1
-  HISTORY_FILE_NAME = 'searches.yml'
+  HISTORY_FILE_NAME = 'data/searches.yml'
 
   def record_request(car_request_obj)
     @request = car_request_obj

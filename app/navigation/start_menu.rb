@@ -1,13 +1,19 @@
 # frozen_string_literal: true
 
-# module for navigating the application
-module StartMenu
+# class for navigating the application
+class StartMenu
+  attr_accessor :autorization
+
+  def initialize
+    @authorization = AuthorizationMenu.new
+  end
 
   def call
     print_item(1, 'Search_a_car')
     print_item(2, 'Show_all_cars')
     print_item(3, 'Help')
     print_item(4, 'Exit')
+    @authorization.menu_login
     choose_menu
   end
 
@@ -34,6 +40,7 @@ module StartMenu
     when '4'
       puts I18n.t('goodbye').colorize(:black).on_blue
       exit
+    when '5'..'6' then @authorization.select_event(event)
     else puts I18n.t('invalid_request').colorize(:black).on_red
     end
   end
@@ -41,7 +48,7 @@ module StartMenu
   def search_car
     search_request = CarRequest.new
     search_request.print_menu
-    search_result = CarSearch.new
+    search_result = SearchClass.new
     search_result.search_by_request(search_request)
     search_result.print_result
   end
@@ -49,7 +56,7 @@ module StartMenu
   def all_cars
     search_request = CarRequest.new
     search_request.choose_sort
-    search_result = CarSearch.new
+    search_result = SearchClass.new
     search_result.search_by_request(search_request)
     search_result.print_result
   end

@@ -17,3 +17,5 @@ gem 'bundler-leak', '~> 0.3.0'
 gem 'lefthook', '~> 1.2', '>= 1.2.4'
 
 gem 'fasterer', '~> 0.1.9'
+
+gem 'bcrypt', '~> 3.1', '>= 3.1.12'
