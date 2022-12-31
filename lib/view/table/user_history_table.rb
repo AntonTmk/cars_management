@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
-# module for creating tables from Users history
 module Views
   module Table
+    # class for creating tables from Users history
     class UserHistoryTable < BaseTable
-
       def title
         "#{I18n.t('task_title')} \n #{@content[:email]}".colorize(:magenta)
       end

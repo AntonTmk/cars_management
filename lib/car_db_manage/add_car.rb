@@ -14,4 +14,4 @@ puts car
 
 car_db = YAML.load_file 'cars.yml'
 car_db << car
-File.open('cars.yml','w') { |f| f.write car_db.to_yaml }
+File.open('cars.yml', 'w') { |f| f.write car_db.to_yaml }

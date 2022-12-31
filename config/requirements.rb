@@ -17,7 +17,6 @@ require './lib/file_process'
 require_relative '../lib/navigation/start_menu'
 require_relative '../lib/text_translation'
 
-
 require_relative '../config/initializers/i18n'
 
 # tables

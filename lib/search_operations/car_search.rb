@@ -31,7 +31,7 @@ class CarSearch
 
   def sort_result
     @result = sort_type?('price') ? sort_by_price : sort_by_date
-    @result = @result.reverse if @request.sort_direction.casecmp('asc') != 0
+    @result = @result.reverse if @request.sort_direction.downcase == 'asc'
   end
 
   def sort_type?(type)

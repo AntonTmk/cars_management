@@ -2,6 +2,7 @@
 
 module Views
   module Table
+    # base class for creating tables
     class BaseTable
       def initialize(content)
         @content = content
