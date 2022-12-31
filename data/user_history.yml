@@ -1,7 +1,7 @@
 ---
-- :user_email: example@mail.ue
+- :user_email: anton@mail.ua
   :history:
   - :id: 1
     :requests_quantity: 2
-  - :id: 4
-    :requests_quantity: 2
+  - :id: 2
+    :requests_quantity: 1

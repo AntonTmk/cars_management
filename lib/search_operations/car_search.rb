@@ -1,13 +1,8 @@
 # frozen_string_literal: true
 
 # class to get the result of a search request
-<<<<<<<< HEAD:lib/search_operations/car_search.rb
 class CarSearch
-========
-class SearchClass
->>>>>>>> cedcaab03751fcf549f6188fad7ea26976af0da2:app/search_operations/search_class.rb
   include SearchHistory
-  include CarsTable
   include FileProcess
   attr_accessor :request, :result
 
@@ -29,14 +24,10 @@ class SearchClass
 
   def print_result
     sort_result
-    puts Views::Table::CarsTable.new(result_hash).call
+    puts Views::Table::CarsTable.new(@result, @request).call
   end
 
   private
-
-  def result_hash
-    { requests_quantity: @request.requests_quantity, total_quantity: @request.total_quantity, content: @result }
-  end
 
   def sort_result
     @result = sort_type?('price') ? sort_by_price : sort_by_date
