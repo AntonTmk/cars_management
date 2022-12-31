@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../../config/requirements'
-
 # module for saving requests history
 module SaveRequest
   attr_accessor :request, :result
