@@ -1,4 +1,4 @@
-git pull origin mainpre-commit:
+pre-commit:
   parallel: true
   commands:
     fasterer:

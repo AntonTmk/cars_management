@@ -1,24 +1,20 @@
 # frozen_string_literal: true
 
 # class for navigating the application
-class StartMenu
+class StartMenu < BaseMenu
   attr_accessor :autorization
 
   def initialize
     @authorization = AuthorizationMenu.new
   end
 
-  def call
+  def print_menu
     print_item(1, 'Search_a_car')
     print_item(2, 'Show_all_cars')
     print_item(3, 'Help')
     print_item(4, 'Exit')
     @authorization.menu_login
     choose_menu
-  end
-
-  def print_item(num, i18n_key)
-    puts "#{num}. #{I18n.t(i18n_key)}".colorize(:light_blue)
   end
 
   def choose_menu
@@ -48,15 +44,21 @@ class StartMenu
   def search_car
     search_request = CarRequest.new
     search_request.print_menu
-    search_result = SearchClass.new
+    search_result = CarSearch.new
     search_result.search_by_request(search_request)
     search_result.print_result
+    save_request(search_result.request.id) if @authorization.user.status
+  end
+
+  def save_request(requests_id)
+    history = SaveUserSearchHistory.new(@authorization.user.email)
+    history.save_search_request(requests_id)
   end
 
   def all_cars
     search_request = CarRequest.new
     search_request.choose_sort
-    search_result = SearchClass.new
+    search_result = CarSearch.new
     search_result.search_by_request(search_request)
     search_result.print_result
   end

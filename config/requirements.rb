@@ -1,27 +1,45 @@
 # frozen_string_literal: true
 
+# gems
+
 require 'i18n'
 require 'colorize'
-require 'date'
 require 'bcrypt'
-require 'yaml'
 require 'terminal-table'
+require 'yaml'
+require 'date'
 
-# classes/modules
+# classes
 
-require './app/view/table/base_table'
-require './app/navigation/start_menu'
-require './app/file_process'
-require './app/search_operations/search_history'
-require './app/view/table/cars_table'
-require './app/search_operations/search_class'
-require './app/text_translation'
-require './config/initializers/i18n'
-require './app/user_account/auth_modules/account_login'
-require './app/user_account/auth_modules/log_out'
-require './app/user_account/auth_modules/create_account'
-require './app/user_account/user_data'
-require './app/user_account/user_auth'
-require './app/search_request/comparison_requests'
-require './app/search_request/car_request'
-require './app/navigation/authorization_menu'
+require './lib/navigation/base_menu'
+require './lib/file_process'
+
+require_relative '../lib/navigation/start_menu'
+require_relative '../lib/text_translation'
+
+require_relative '../config/initializers/i18n'
+
+# tables
+
+require './lib/view/table/base_table'
+require './lib/view/table/cars_table'
+require './lib/view/table/user_history_table'
+
+# user authorization
+
+require './lib/user_account/user_data'
+require './lib/user_account/auth_modules/account_login'
+require './lib/user_account/auth_modules/log_out'
+require './lib/user_account/auth_modules/create_account'
+require './lib/user_account/user_auth'
+require './lib/user_account/password_validator'
+
+require './lib/search_request/comparison_requests'
+require './lib/search_request/car_request'
+require './lib/search_operations/search_history'
+require './lib/search_operations/car_search'
+require './lib/search_operations/user_search_history/save_user_search_history'
+require './lib/search_operations/user_search_history/read_user_search_history'
+
+require './lib/navigation/user_history_menu'
+require './lib/navigation/authorization_menu'

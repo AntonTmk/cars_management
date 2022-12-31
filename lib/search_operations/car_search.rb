@@ -6,7 +6,7 @@ class CarSearch
   include FileProcess
   attr_accessor :request, :result
 
-  CAR_DB = 'cars.yml'
+  CAR_DB = 'data/cars.yml'
 
   def search_by_request(car_request_obj)
     @request = car_request_obj
@@ -20,16 +20,18 @@ class CarSearch
     car_list.find_all { |car| @request.include?(car) }
   end
 
+  include Views
+
   def print_result
     sort_result
-    CarsTable.new(@result, @request).call
+    puts Views::Table::CarsTable.new(@result, @request).call
   end
 
   private
 
   def sort_result
     @result = sort_type?('price') ? sort_by_price : sort_by_date
-    @result = @result.reverse if @request.sort_direction.casecmp('asc') != 0
+    @result = @result.reverse if @request.sort_direction.downcase == 'asc'
   end
 
   def sort_type?(type)

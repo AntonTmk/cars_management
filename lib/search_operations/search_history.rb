@@ -19,7 +19,8 @@ module SearchHistory
 
   def initialize_file
     @request.requests_quantity = DEFAULT_REQUESTS_QUANTITY
-    @history = [@request.car_hash(DEFAULT_REQUESTS_QUANTITY, @request.total_quantity)]
+    @history = []
+    add_request(@history)
   end
 
   def edit_history
@@ -28,14 +29,16 @@ module SearchHistory
 
   def add_request(list)
     @request.requests_quantity = DEFAULT_REQUESTS_QUANTITY
-    list << @request.car_hash(DEFAULT_REQUESTS_QUANTITY, @request.total_quantity)
+    @request.id = list.length
+    list << @request.car_hash(list.length, DEFAULT_REQUESTS_QUANTITY, @request.total_quantity)
   end
 
   def update_request(list)
-    list.each do |car|
+    list.each_with_index do |car, car_index|
       next unless compare_requests?(car)
 
       increase_record(car, @request.total_quantity)
+      @request.id = car_index
     end
   end
 
@@ -46,7 +49,7 @@ module SearchHistory
   end
 
   def history_includes_request?(searches)
-    searches.select { |req| compare_requests?(req) }.length.positive?
+    searches.select { |request| compare_requests?(request) }.length.positive?
   end
 
   def compare_requests?(car)

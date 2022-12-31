@@ -3,7 +3,7 @@
 # class for creating a search query
 class CarRequest
   include ComparisonRequests
-  attr_accessor :make, :model, :year_from, :year_to, :price_from, :price_to, :sort_option, :sort_direction,
+  attr_accessor :id, :make, :model, :year_from, :year_to, :price_from, :price_to, :sort_option, :sort_direction,
                 :requests_quantity, :total_quantity
 
   def initialize
@@ -38,8 +38,8 @@ class CarRequest
     gets.chomp
   end
 
-  def car_hash(request_quantity, total_quantity)
-    { make: @make, model: @model,
+  def car_hash(request_id, request_quantity, total_quantity)
+    { id: request_id, make: @make, model: @model,
       year_from: @year_from, year_to: @year_to,
       price_from: @price_from, price_to: @price_to,
       requests_quantity: request_quantity, total_quantity: total_quantity }
@@ -50,7 +50,7 @@ class CarRequest
   end
 
   def car_eql?(hash)
-    downcase_array(hash) == downcase_array(car_hash(hash[:requests_quantity], hash[:total_quantity]))
+    downcase_array(hash) == downcase_array(car_hash(hash[:id], hash[:requests_quantity], hash[:total_quantity]))
   end
 
   private

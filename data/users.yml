@@ -7,5 +7,13 @@
   :password: "$2a$12$6kb7XXMeENbczFFKjAbOYOeHplMMGeSsY6UmOlV3w0jMH.U96JwU."
 - :email: bob@mail.ua
   :password: "$2a$12$sDhP0k19qL3H/AxHP4lPGO/Q3C/yeXOh7d3HNh8KVxudgUuDrHrYq"
-- :email: aredgfc@mail.lo
-  :password: "$2a$12$LD8YFtzFOhm5T0eU.uwlMu5KZuvBav7vV.h1qU.UqRtmIxxhJFM4C"
+- :email: gail@mail.com
+  :password: "$2a$12$EF/KcktHItOIp2Hj3JQ2S.1hufxusHIV7T2CuaTna8xiVKZg0yNPG"
+- :email: bobby@mail.com
+  :password: "$2a$12$W1t5V.t3HLIJ8Zviub3IFO3kiiTsBu8vXIXT6OvlQZxR8CxpT3iBu"
+- :email: example@mal.in
+  :password: "$2a$12$UnnNiE5695tbNFpCLjQ/0ebBbDFe5XHCcmTzaS1mAw1HPEeYFp4Xa"
+- :email: example@mail.ue
+  :password: "$2a$12$brsCvLm7CPAFE6YU/0sDqeZrgN.tB8dhqf/xzOQDt7vPNg1wd3BCO"
+- :email: anton@mail.ua
+  :password: "$2a$12$8MF2IQ1OKKkPCH8qWmcmQ.dwhT6AiUVcuw5JorkQIDm2xSzX54eXO"
