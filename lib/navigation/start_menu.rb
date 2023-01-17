@@ -8,7 +8,7 @@ class StartMenu < BaseMenu
     @authorization = AuthorizationMenu.new
   end
 
-  def print_menu
+  def call
     print_item(1, 'Search_a_car')
     print_item(2, 'Show_all_cars')
     print_item(3, 'Help')
